@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 import java.util.*;
 import javax.swing.JComboBox;
@@ -19,10 +20,10 @@ import javax.swing.JTabbedPane;
 
 
 public class Principal{
-
+    
 	private JFrame frame;
 	Random  rnd = new Random();
-	private JButton btnBuscarEmpresa;
+	private JButton btnBuscarEmpresa, btnCalcular;
 	private JComboBox<String> CBMaterial;
 	private JComboBox<Integer> CBZona;
 	private JLabel lblNombre,lblDireccion, lblTelefono, lblPagina;
@@ -37,7 +38,7 @@ public class Principal{
     DecimalFormat decimales = new DecimalFormat("0.0000");
     private JLabel lblReciguate;
     private JLabel lblZona;
-    private JLabel lblMaterial;
+    private JLabel lblMaterial, lblMapa;
 
 	/**
 	 * Launch the application.
@@ -68,18 +69,14 @@ public class Principal{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
-		frame.setBounds(100, 100, 585, 457);
+		frame.setBounds(100, 100, 585, 522);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		guate= new CiudadVerde();
-        
-        lblDatoCurioso = new JLabel("Dato curioso:");
-        lblDatoCurioso.setForeground(new Color(51, 204, 102));
-        lblDatoCurioso.setBounds(10, 393, 549, 14);
-        frame.getContentPane().add(lblDatoCurioso);
         
         lblReciguate = new JLabel("RECIGUATE");
         lblReciguate.setForeground(new Color(0, 204, 0));
@@ -88,7 +85,7 @@ public class Principal{
         frame.getContentPane().add(lblReciguate);
         
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-        tabbedPane.setBounds(0, 0, 569, 418);
+        tabbedPane.setBounds(0, 0, 569, 483);
         frame.getContentPane().add(tabbedPane);
         
         JPanel Reciclar = new JPanel();
@@ -111,6 +108,7 @@ public class Principal{
         btnBuscarEmpresa.setBackground(new Color(255, 255, 255));
         btnBuscarEmpresa.setBounds(10, 116, 152, 29);
         Reciclar.add(btnBuscarEmpresa);
+        btnBuscarEmpresa.addActionListener(new actionlistener());
         
         lblNombre = new JLabel("Nombre");
         lblNombre.setForeground(new Color(0, 102, 0));
@@ -139,9 +137,19 @@ public class Principal{
         Reciclar.add(lblZona);
         
         lblMaterial = new JLabel("Material:");
-        lblMaterial.setBounds(10, 17, 46, 14);
+        lblMaterial.setBounds(10, 17, 93, 14);
         Reciclar.add(lblMaterial);
-        btnBuscarEmpresa.addActionListener(new actionlistener());
+        
+        lblMapa = new JLabel("Mapa:");
+        lblMapa.setForeground(new Color(0, 128, 0));
+        lblMapa.setBounds(10, 156, 193, 14);
+        Reciclar.add(lblMapa);
+        
+        lblDatoCurioso = new JLabel("Dato curioso:");
+        lblDatoCurioso.setBounds(10, 430, 549, 14);
+        Reciclar.add(lblDatoCurioso);
+        lblDatoCurioso.setForeground(new Color(51, 204, 102));
+        lblMapa.setVisible(false);
         
         JPanel Buscar = new JPanel();
         tabbedPane.addTab("Reciclar", null, Buscar, null);
@@ -168,10 +176,11 @@ public class Principal{
         lblCalcularDineroAhorrado.setBounds(189, 11, 186, 14);
         Buscar.add(lblCalcularDineroAhorrado);
         
-        JButton btnCalcular = new JButton("Calcular");
+        btnCalcular = new JButton("Calcular");
         btnCalcular.setBackground(new Color(255, 255, 255));
         btnCalcular.setBounds(188, 35, 86, 23);
         Buscar.add(btnCalcular);
+        btnCalcular.addActionListener(new actionlistener());
         
         txtCantidad = new JTextField();
         txtCantidad.setBounds(10, 92, 86, 20);
@@ -192,49 +201,8 @@ public class Principal{
         lblResultado.setForeground(new Color(0, 102, 0));
         lblResultado.setBounds(188, 77, 296, 14);
         Buscar.add(lblResultado);
-		btnCalcular.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				String material=cbxMateriales.getSelectedItem().toString();
-				double cantidad= Double.parseDouble(txtCantidad.getText());
-				String dimensional=cbxDimensional.getSelectedItem().toString();
-				
-				if (txtCantidad.getText().length()==0){
-					JOptionPane.showMessageDialog(frame,"La caja de texto no contiene números.","Inane warning",JOptionPane.WARNING_MESSAGE);
-				}
-				else{
-					//si presiona el boton hay programacion defensiva y se ejecutan las instrucciones correspondientes
-					String cadena1="";
-					String cadena2="";
-					if (material.equals("Papel")){
-						cadena1="Ha reciclado ";
-						cadena2=" árboles.";
-					}
-					if (material.equals("Vidrio")){
-						cadena1="Ha reciclado ";
-						cadena2="% de la pirámide de Louvre.";
-					}
-					if (material.equals("Metal")){
-						cadena1="Ha reciclado ";
-						cadena2="% de la torre Eiffel.";
-					}
-					if (material.equals("Plastico")){
-						cadena1="Ha reciclado ";
-						cadena2=" muñecas barbies.";
-					}
-					try{
-						lblResultado.setText(cadena1+decimales.format(c.convertir(cantidad,dimensional,material))+cadena2);
-					}
-					catch (Exception e3){
-						JOptionPane.showMessageDialog(frame,"Ingrese un número.","Inane warning",JOptionPane.WARNING_MESSAGE);
-					}
-					
-				}
-				
-				
-			}
-		});
+	
 		
-
 	}
 	public void ComboBox() {
 		//se llenan los combobox
@@ -248,7 +216,7 @@ public class Principal{
 			CBMaterial.addItem("Vidrio");
 			CBMaterial.addItem("Plastico");
 			CBMaterial.addItem("Metal");
-		 for (int i=1;i<22;i++){
+		 for (int i=1;i<21;i++){
 				if(i !=20)
 					CBZona.addItem(i);
 			}
@@ -304,9 +272,59 @@ public class Principal{
 				lblTelefono.setText("Telefono: "+guate.buscarRecicladora((String)CBMaterial.getSelectedItem(),(int)CBZona.getSelectedItem(),"telefono"));
 				lblPagina.setText("Pagina Web: "+guate.buscarRecicladora((String)CBMaterial.getSelectedItem(),(int)CBZona.getSelectedItem(),"pagina"));
 				
+				String cadena;
+				cadena=guate.buscarRecicladora((String)CBMaterial.getSelectedItem(),(int)CBZona.getSelectedItem(),"id");
+				int id=0;
+				id=Integer.parseInt(cadena);
+				
+				lblMapa.setVisible(true);
+				ImageIcon i=new ImageIcon("Mapa"+id+".jpg"); 
+			    lblMapa.setIcon(i); 
+			    lblMapa.setBounds(55, 160, 407, 256);
+			    
+
 			}
+			if (e.getSource()==btnCalcular){
+				String material=cbxMateriales.getSelectedItem().toString();
+				double cantidad= Double.parseDouble(txtCantidad.getText());
+				String dimensional=cbxDimensional.getSelectedItem().toString();
+				
+				if (txtCantidad.getText().length()==0){
+					JOptionPane.showMessageDialog(frame,"La caja de texto no contiene números.","Inane warning",JOptionPane.WARNING_MESSAGE);
+				}
+				else{
+					//si presiona el boton hay programacion defensiva y se ejecutan las instrucciones correspondientes
+					String cadena1="";
+					String cadena2="";
+					if (material.equals("Papel")){
+						cadena1="Ha reciclado ";
+						cadena2=" árboles.";
+					}
+					if (material.equals("Vidrio")){
+						cadena1="Ha reciclado ";
+						cadena2="% de la pirámide de Louvre.";
+					}
+					if (material.equals("Metal")){
+						cadena1="Ha reciclado ";
+						cadena2="% de la torre Eiffel.";
+					}
+					if (material.equals("Plastico")){
+						cadena1="Ha reciclado ";
+						cadena2=" muñecas barbies.";
+					}
+					try{
+						lblResultado.setText(cadena1+decimales.format(c.convertir(cantidad,dimensional,material))+cadena2);
+					}
+					catch (Exception e3){
+						JOptionPane.showMessageDialog(frame,"Ingrese un número.","Inane warning",JOptionPane.WARNING_MESSAGE);
+					}
+					
+				}
+			}
+		
 			
 		}
 		
 	}
 }
+
