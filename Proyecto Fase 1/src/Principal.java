@@ -192,7 +192,7 @@ public class Principal {
         
         lblResultado = new JLabel("Resultado:");
         lblResultado.setForeground(new Color(0, 102, 0));
-        lblResultado.setBounds(188, 77, 296, 14);
+        lblResultado.setBounds(189, 95, 296, 14);
         panel_1.add(lblResultado);
         
         lblDatoCurioso = new JLabel("Dato curioso:");
