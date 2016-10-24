@@ -274,4 +274,25 @@ public class CiudadVerde {
 		return cadena;
 	}
 	
+	public String mostrarInfo(String nombre, String regresar){
+		String cadena = "";
+		Recicladora temp = new Recicladora();
+		for (int i = 0; i < ciudad.length; i++){
+			if (ciudad[i].getNombre().equals(nombre)){
+				temp = ciudad[i];
+			}
+		}
+		if(regresar.equals("nombre")){
+			cadena = temp.getNombre();
+		}else if(regresar.equals("direccion")){
+			cadena = temp.getDireccion();
+		}else if(regresar.equals("telefono")){
+			cadena = temp.getTelefono();
+		}else if(regresar.equals("web")){
+			cadena = temp.getPagina();
+		}
+		
+		return cadena;
+	}
+	
 }

@@ -39,6 +39,12 @@ public class Principal{
     private JLabel lblReciguate;
     private JLabel lblZona;
     private JLabel lblMaterial, lblMapa;
+    private JComboBox<String> comboBoxNombres;
+	private JButton btnVerInformacion;
+	private JLabel lblInfoWeb;
+	private JLabel lblInfoTel;
+	private JLabel lblInfoDireccion;
+	private JLabel lblInfoNombre;
 
 	/**
 	 * Launch the application.
@@ -85,7 +91,7 @@ public class Principal{
         frame.getContentPane().add(lblReciguate);
         
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-        tabbedPane.setBounds(0, 0, 569, 483);
+        tabbedPane.setBounds(0, 30, 569, 453);
         frame.getContentPane().add(tabbedPane);
         
         JPanel Reciclar = new JPanel();
@@ -201,6 +207,44 @@ public class Principal{
         lblResultado.setForeground(new Color(0, 102, 0));
         lblResultado.setBounds(188, 77, 296, 14);
         Buscar.add(lblResultado);
+        
+        JPanel VerRecicladoras = new JPanel();
+        VerRecicladoras.setBackground(new Color(204, 255, 153));
+        tabbedPane.addTab("Ver Todas las Recicladoras", null, VerRecicladoras, null);
+        VerRecicladoras.setLayout(null);
+        
+        comboBoxNombres = new JComboBox<String>();
+        comboBoxNombres.setBounds(10, 29, 219, 25);
+        VerRecicladoras.add(comboBoxNombres);
+        
+        JLabel lblSeleccioneElNombre = new JLabel("Seleccione el Nombre de la Empresa:");
+        lblSeleccioneElNombre.setBounds(10, 4, 219, 25);
+        VerRecicladoras.add(lblSeleccioneElNombre);
+        
+        lblInfoWeb = new JLabel("Pagina Web");
+        lblInfoWeb.setForeground(new Color(0, 102, 0));
+        lblInfoWeb.setBounds(10, 185, 469, 16);
+        VerRecicladoras.add(lblInfoWeb);
+        
+        lblInfoTel = new JLabel("Telefono");
+        lblInfoTel.setForeground(new Color(0, 102, 0));
+        lblInfoTel.setBounds(10, 160, 469, 16);
+        VerRecicladoras.add(lblInfoTel);
+        
+        lblInfoDireccion = new JLabel("Direccion");
+        lblInfoDireccion.setForeground(new Color(0, 102, 0));
+        lblInfoDireccion.setBounds(10, 133, 469, 16);
+        VerRecicladoras.add(lblInfoDireccion);
+        
+        lblInfoNombre = new JLabel("Nombre");
+        lblInfoNombre.setForeground(new Color(0, 102, 0));
+        lblInfoNombre.setBounds(10, 109, 469, 16);
+        VerRecicladoras.add(lblInfoNombre);
+        
+        btnVerInformacion = new JButton("Ver Informacion");
+        btnVerInformacion.setBounds(10, 65, 219, 23);
+        VerRecicladoras.add(btnVerInformacion);
+        btnVerInformacion.addActionListener(new actionlistener());
 	
 		
 	}
@@ -220,6 +264,10 @@ public class Principal{
 				if(i !=20)
 					CBZona.addItem(i);
 			}
+		 
+		 for (int i = 0; i < guate.ciudad.length;i++){
+			 comboBoxNombres.addItem(guate.ciudad[i].getNombre());
+		 }
   }
 	
 	public void Random(){
@@ -320,6 +368,14 @@ public class Principal{
 					}
 					
 				}
+			}
+			
+			if (e.getSource().equals(btnVerInformacion)){
+				lblInfoNombre.setText("Nombre: "+guate.mostrarInfo(comboBoxNombres.getSelectedItem().toString(), "nombre"));
+				lblInfoDireccion.setText("Direccion: "+guate.mostrarInfo(comboBoxNombres.getSelectedItem().toString(), "direccion"));
+				lblInfoTel.setText("Telefono: "+guate.mostrarInfo(comboBoxNombres.getSelectedItem().toString(), "telefono"));
+				lblInfoWeb.setText("Pagina Web: "+guate.mostrarInfo(comboBoxNombres.getSelectedItem().toString(), "web"));
+				
 			}
 		
 			
