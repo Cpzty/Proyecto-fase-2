@@ -1,7 +1,7 @@
-agregar más labels
+agregar más labels				(checked)
 agregar para fuera de la cuidad
--reciclar ambas cosas
+reciclar ambas cosas 				(checked)
 historial o algo asi (lista posibles lugares)
--dinero ahorrado
-mapa(cordenadas)
-poner si son usuario o empresas
+dinero ahorrado
+mapa(cordenadas)				(checked)
+poner si son usuario o empresas			(checked)
