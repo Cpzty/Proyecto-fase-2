@@ -438,6 +438,12 @@ public class main {
 			CBMaterial.addItem("Vidrio");
 			CBMaterial.addItem("Plastico");
 			CBMaterial.addItem("Metal");
+			CBMaterial.addItem("papel y plastico");
+			CBMaterial.addItem("papel y vidrio");
+			CBMaterial.addItem("papel y metal");
+			CBMaterial.addItem("plastico y vidrio");
+			CBMaterial.addItem("plastico y metal");
+			CBMaterial.addItem("vidrio y metal");
 		 for (int i=1;i<21;i++){
 				if(i !=20)
 					CBZona.addItem(i);

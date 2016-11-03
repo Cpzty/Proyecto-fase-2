@@ -1,6 +1,6 @@
 /**
  * 
- * @author Luis Diego Fernández
+ * @author Luis Diego Fernï¿½ndez
  * @author Rodrigo Urrutia
  * @author Helmuth Nisal
  * @author Gadhi Rodriguez
@@ -235,42 +235,149 @@ public class CiudadVerde {
 	 * @param regresar String especificando el dato que se quiere que se retorne una cadena con su informacion.
 	 * @return cadena con la informacion del dato especificado en la variable regresar de la recicladora mas cercana a la ubicacion del usuario.
 	 */
-	public String buscarRecicladora(String material, int zona, String regresar){
-		String cadena = "oops";
+	public String buscarRecicladora(String material1, int zona, String regresar){
+		String cadena = "Revisar datos";
 		int e = zona - 1;
-		int f = 0;
+		int f1=0, f2=0;
+		boolean papel=false;//papel
+		boolean plastico=false;//plastico
+		boolean vidrio=false;//vidrio
+		boolean metal=false;//metal
 		
-		material = material.toLowerCase();
-		if(material.equals("plastico"))
-			f = 1;
-		if(material.equals("vidrio"))
-			f = 2;
-		if(material.equals("metal"))
-			f = 3;
+		material1 = material1.toLowerCase();
+
+		if(material1.equals("papel")){
+			papel = true;
+		}
+		if(material1.equals("plastico")){
+			plastico = true;
+			f1=1;
+		}
+		if(material1.equals("vidrio")){
+			vidrio = true;
+			f1=2;
+		}
+		if(material1.equals("metal")){
+			metal = true;
+			f1=3;
+		}
+		if(material1.equals("papel y plastico")){
+			papel = true;
+			plastico =true;
+			f2=1;
+		}
+		if(material1.equals("papel y vidrio")){
+			papel = true;
+			vidrio =true;
+			f2=2;
+		}
+		if(material1.equals("papel y metal")){
+			papel=true;
+			metal = true;
+			f2=2;
+		}
+		if(material1.equals("plastico y vidrio")){
+			plastico = true;
+			vidrio= true;
+			f1=1;
+			f2=2;
+		}
+		if(material1.equals("plastico y metal")){
+			plastico =true;
+			metal = true;
+			f1=1;
+			f2=3;
+		}
+		if(material1.equals("vidrio y metal")){
+			vidrio=true;
+			metal = true;
+			f1=2;
+			f2=3;
+		}
 		
-		zona = arrZonas[e][f];
+		zona = arrZonas[e][f1];
 	
 		for (int i = 0; i < 17; i++){
 			if (ciudad[i].getZona() == zona){
-				if (material.equals("papel") && ciudad[i].isPapel()==true){
+				if((papel && plastico)&&(ciudad[i].isPapel()&&ciudad[i].isPlastico())){			//reciclar papel y plastico
+					cadena = ciudad[i].toString(regresar);
+					i = 17;	
+				}else if((papel && vidrio)&&(ciudad[i].isPapel()&&ciudad[i].isVidrio())){		//reciclar papel y vidrio
+					cadena = ciudad[i].toString(regresar);
+					i = 17;	
+				}else if((papel && metal)&&(ciudad[i].isPapel()&&ciudad[i].isMetal())){			//reciclar papel y metal
+					cadena = ciudad[i].toString(regresar);
+					i = 17;	
+				}else if((plastico && vidrio)&&(ciudad[i].isPlastico()&&ciudad[i].isVidrio())){	//reciclar plastico y vidrio
+					cadena = ciudad[i].toString(regresar);
+					i = 17;	
+				}else if((plastico && metal)&&(ciudad[i].isPlastico()&&ciudad[i].isMetal())){	//reciclar plastico y metal
+					cadena = ciudad[i].toString(regresar);
+					i = 17;	
+				}else if((vidrio && metal)&&(ciudad[i].isVidrio()&&ciudad[i].isMetal())){		//reciclar vidrio y metal
+					cadena = ciudad[i].toString(regresar);
+					i = 17;	
+				}else if (papel && ciudad[i].isPapel()){										//reciclar papel 
 					cadena = ciudad[i].toString(regresar);
 					i = 17;	
 				}
-				else if (material.equals("plastico") && ciudad[i].isPlastico()==true){
+				else if (plastico && ciudad[i].isPlastico()){									//reciclar plastico
 					cadena = ciudad[i].toString(regresar);
 					i = 17;
 				}
-				else if (material.equals("vidrio") && ciudad[i].isVidrio()==true){
+				else if (vidrio&& ciudad[i].isVidrio()){										//reciclar vidrio
+					cadena = ciudad[i].toString(regresar);
+					i = 17;
+				}	
+				else if (metal && ciudad[i].isMetal()){											//reciclar metal
 					cadena = ciudad[i].toString(regresar);
 					i = 17;
 				}
-				else if (material.equals("metal") && ciudad[i].isMetal()==true){
+			}
+		}
+		if (cadena.equals("Revisar datos")){
+			zona =arrZonas[e][f2];
+			for (int i = 0; i < 17; i++){
+			if (ciudad[i].getZona() == zona){
+				if((papel && plastico)&&(ciudad[i].isPapel()&&ciudad[i].isPlastico())){			//reciclar papel y plastico
+					cadena = ciudad[i].toString(regresar);
+					i = 17;	
+				}else if((papel && vidrio)&&(ciudad[i].isPapel()&&ciudad[i].isVidrio())){		//reciclar papel y vidrio
+					cadena = ciudad[i].toString(regresar);
+					i = 17;	
+				}else if((papel && metal)&&(ciudad[i].isPapel()&&ciudad[i].isMetal())){			//reciclar papel y metal
+					cadena = ciudad[i].toString(regresar);
+					i = 17;	
+				}else if((plastico && vidrio)&&(ciudad[i].isPlastico()&&ciudad[i].isVidrio())){	//reciclar plastico y vidrio
+					cadena = ciudad[i].toString(regresar);
+					i = 17;	
+				}else if((plastico && metal)&&(ciudad[i].isPlastico()&&ciudad[i].isMetal())){	//reciclar plastico y metal
+					cadena = ciudad[i].toString(regresar);
+					i = 17;	
+				}else if((vidrio && metal)&&(ciudad[i].isVidrio()&&ciudad[i].isMetal())){		//reciclar vidrio y metal
+					cadena = ciudad[i].toString(regresar);
+					i = 17;	
+				}else if (papel && ciudad[i].isPapel()){										//reciclar papel 
+					cadena = ciudad[i].toString(regresar);
+					i = 17;	
+				}
+				else if (plastico && ciudad[i].isPlastico()){									//reciclar plastico
+					cadena = ciudad[i].toString(regresar);
+					i = 17;
+				}
+				else if (vidrio&& ciudad[i].isVidrio()){										//reciclar vidrio
+					cadena = ciudad[i].toString(regresar);
+					i = 17;
+				}	
+				else if (metal && ciudad[i].isMetal()){											//reciclar metal
 					cadena = ciudad[i].toString(regresar);
 					i = 17;
 				}
 			}
 		}
 			
+		
+		}
 		return cadena;
 	}
 	
