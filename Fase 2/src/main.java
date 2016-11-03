@@ -165,7 +165,7 @@ public class main {
         Reciclar.add(lblMapa);
         
         lblDatoCurioso = new JLabel("Dato curioso:");
-        lblDatoCurioso.setBounds(10, 430, 549, 14);
+        lblDatoCurioso.setBounds(10, 384, 549, 14);
         Reciclar.add(lblDatoCurioso);
         lblDatoCurioso.setForeground(new Color(51, 204, 102));
         lblMapa.setVisible(false);
