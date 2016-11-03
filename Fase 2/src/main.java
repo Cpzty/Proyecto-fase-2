@@ -304,10 +304,10 @@ public class main {
 		Registro.add(lblNombre2);
 		lblNombre2.setVisible(false);
 		
-		JLabel lblContraseña2 = new JLabel("Contrase\u00F1a");
-		lblContraseña2.setBounds(80, 182, 75, 14);
-		Registro.add(lblContraseña2);
-		lblContraseña2.setVisible(false);
+		JLabel lblContrasena2 = new JLabel("Contrase\u00F1a");
+		lblContrasena2.setBounds(80, 182, 75, 14);
+		Registro.add(lblContrasena2);
+		lblContrasena2.setVisible(false);
 		
 		txtNombre2 = new JTextField();
 		txtNombre2.setBounds(165, 138, 86, 20);
@@ -350,7 +350,7 @@ public class main {
 				Registro.setVisible(false);
 				lblRegistro.setVisible(false);
 				lblNombre2.setVisible(false);
-				lblContraseña2.setVisible(false);
+				lblContrasena2.setVisible(false);
 				txtNombre2.setVisible(false);
 				txtContrasea.setVisible(false);
 				btnRegresar.setVisible(false);
@@ -388,7 +388,7 @@ public class main {
 			Registro.setVisible(true);
 			lblRegistro.setVisible(true);
 			lblNombre2.setVisible(true);
-			lblContraseña2.setVisible(true);
+			lblContrasena2.setVisible(true);
 			txtNombre2.setVisible(true);
 			txtContrasea.setVisible(true);
 			btnRegresar.setVisible(true);
@@ -408,7 +408,7 @@ public class main {
 				Registro.setVisible(false);
 				lblRegistro.setVisible(false);
 				lblNombre2.setVisible(false);
-				lblContraseña2.setVisible(false);
+				lblContrasena2.setVisible(false);
 				txtNombre2.setVisible(false);
 				txtContrasea.setVisible(false);
 				btnRegresar.setVisible(false);
@@ -460,13 +460,13 @@ public class main {
 	        cadena= "1 litro de aceite puede contaminar 1,000 litros de agua.";
 	        break;
 	    case 2:
-	        cadena= "Para producir 1 tonelada de papel se cortan 17 árboles grandes.";
+	        cadena= "Para producir 1 tonelada de papel se cortan 17 ï¿½rboles grandes.";
 	        break;
 	    case 3:
-	        cadena= "Reciclar 900kg de plástico puede salvar 7570 litros de gasolina.";
+	        cadena= "Reciclar 900kg de plï¿½stico puede salvar 7570 litros de gasolina.";
 	        break;
 	    case 4:
-	        cadena= "La ropa también se puede reciclar.";
+	        cadena= "La ropa tambiï¿½n se puede reciclar.";
 	        break;
 	    case 5:
 	        cadena= "Al reciclar vidrio este debe ser separado por color.";
@@ -475,10 +475,10 @@ public class main {
 	        cadena= "El 90% del precio que pagas por el agua embotellada es el costo de la botella.";
 	        break;
 	    case 7:
-	        cadena= "En Europa apenas se recicla el 2.5% de la botellas de plástico que utilizan.";
+	        cadena= "En Europa apenas se recicla el 2.5% de la botellas de plï¿½stico que utilizan.";
 	        break;
 	    case 8:
-	        cadena= "Embotellar el agua es el método energéticamente menos eficiente.";
+	        cadena= "Embotellar el agua es el mï¿½todo energï¿½ticamente menos eficiente.";
 	        break;
 	
 	}
@@ -516,7 +516,7 @@ public class main {
 				String dimensional=cbxDimensional.getSelectedItem().toString();
 				
 				if (txtCantidad.getText().length()==0){
-					JOptionPane.showMessageDialog(frame,"La caja de texto no contiene números.","Inane warning",JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(frame,"La caja de texto no contiene nï¿½meros.","Inane warning",JOptionPane.WARNING_MESSAGE);
 				}
 				else{
 					//si presiona el boton hay programacion defensiva y se ejecutan las instrucciones correspondientes
@@ -524,11 +524,11 @@ public class main {
 					String cadena2="";
 					if (material.equals("Papel")){
 						cadena1="Ha reciclado ";
-						cadena2=" árboles.";
+						cadena2=" ï¿½rboles.";
 					}
 					if (material.equals("Vidrio")){
 						cadena1="Ha reciclado ";
-						cadena2="% de la pirámide de Louvre.";
+						cadena2="% de la pirï¿½mide de Louvre.";
 					}
 					if (material.equals("Metal")){
 						cadena1="Ha reciclado ";
@@ -536,13 +536,13 @@ public class main {
 					}
 					if (material.equals("Plastico")){
 						cadena1="Ha reciclado ";
-						cadena2=" muñecas barbies.";
+						cadena2=" muï¿½ecas barbies.";
 					}
 					try{
 						lblResultado.setText(cadena1+decimales.format(c.convertir(cantidad,dimensional,material))+cadena2);
 					}
 					catch (Exception e3){
-						JOptionPane.showMessageDialog(frame,"Ingrese un número.","Inane warning",JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(frame,"Ingrese un nï¿½mero.","Inane warning",JOptionPane.WARNING_MESSAGE);
 					}
 					
 				}
