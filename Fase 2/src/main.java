@@ -466,13 +466,13 @@ public class main {
 	        cadena= "1 litro de aceite puede contaminar 1,000 litros de agua.";
 	        break;
 	    case 2:
-	        cadena= "Para producir 1 tonelada de papel se cortan 17 �rboles grandes.";
+	        cadena= "Para producir 1 tonelada de papel se cortan 17 arboles grandes.";
 	        break;
 	    case 3:
-	        cadena= "Reciclar 900kg de pl�stico puede salvar 7570 litros de gasolina.";
+	        cadena= "Reciclar 900kg de plastico puede salvar 7570 litros de gasolina.";
 	        break;
 	    case 4:
-	        cadena= "La ropa tambi�n se puede reciclar.";
+	        cadena= "La ropa tambien se puede reciclar.";
 	        break;
 	    case 5:
 	        cadena= "Al reciclar vidrio este debe ser separado por color.";
@@ -481,10 +481,10 @@ public class main {
 	        cadena= "El 90% del precio que pagas por el agua embotellada es el costo de la botella.";
 	        break;
 	    case 7:
-	        cadena= "En Europa apenas se recicla el 2.5% de la botellas de pl�stico que utilizan.";
+	        cadena= "En Europa apenas se recicla el 2.5% de la botellas de plastico que utilizan.";
 	        break;
 	    case 8:
-	        cadena= "Embotellar el agua es el m�todo energ�ticamente menos eficiente.";
+	        cadena= "Embotellar el agua es el metodo energeticamente menos eficiente.";
 	        break;
 	
 	}
