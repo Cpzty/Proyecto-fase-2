@@ -19,7 +19,7 @@ public class Usuarios {
          String sql = "CREATE TABLE COMPANY " +
                       "(ID INT PRIMARY KEY     NOT NULL," +
                       " NAME           TEXT    NOT NULL, " +
-                      " AGE            INT     NOT NULL, " +
+                      " USUARIO        INT     NOT NULL, " +
                       " ADDRESS        CHAR(50), " +
                       " SALARY         REAL)";
          stmt.executeUpdate(sql);

@@ -58,7 +58,7 @@ public class Conector {
          System.err.println(e.getClass().getName()+": "+e.getMessage());
          System.exit(0);
       }
-      System.out.println("Opened database successfully");
+      System.out.println("Opened database successfully jojo");
         try {
             stmt = c.createStatement();
         } catch (SQLException ex) {
