@@ -25,6 +25,9 @@ import java.awt.event.ActionEvent;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.CardLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class Principal {
 
@@ -98,19 +101,13 @@ public class Principal {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-	
-		 frame = new JFrame();
+			
+			guate= new CiudadVerde();
+			
+			frame = new JFrame();
 			frame.getContentPane().setBackground(new Color(255, 255, 255));
 			frame.setBounds(100, 100, 585, 522);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		guate= new CiudadVerde();
-        GridBagLayout gridBagLayout = new GridBagLayout();
-        gridBagLayout.columnWidths = new int[]{569, 0};
-        gridBagLayout.rowHeights = new int[]{23, 453, 0};
-        gridBagLayout.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-        gridBagLayout.rowWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
-        frame.getContentPane().setLayout(gridBagLayout);
         	
         	tabbedPane = new JTabbedPane(JTabbedPane.TOP);
         	tabbedPane.setVisible(false);
@@ -119,17 +116,9 @@ public class Principal {
         	lblReciguate.setForeground(new Color(0, 204, 0));
         	lblReciguate.setFont(new Font("Arial", Font.PLAIN, 16));
         	lblReciguate.setVisible(false);
-        	GridBagConstraints gbc_lblReciguate = new GridBagConstraints();
-        	gbc_lblReciguate.fill = GridBagConstraints.VERTICAL;
-        	gbc_lblReciguate.insets = new Insets(0, 0, 5, 0);
-        	gbc_lblReciguate.gridx = 0;
-        	gbc_lblReciguate.gridy = 0;
-        	frame.getContentPane().add(lblReciguate, gbc_lblReciguate);
-        	GridBagConstraints gbc_tabbedPane = new GridBagConstraints();
-        	gbc_tabbedPane.fill = GridBagConstraints.BOTH;
-        	gbc_tabbedPane.gridx = 0;
-        	gbc_tabbedPane.gridy = 1;
-        	frame.getContentPane().add(tabbedPane, gbc_tabbedPane);
+        	frame.getContentPane().setLayout(new CardLayout(0, 0));
+        	frame.getContentPane().add(lblReciguate, "name_411968808218137");
+        	frame.getContentPane().add(tabbedPane, "name_411968820848809");
         	
         	
         	JPanel Buscar = new JPanel();
@@ -428,93 +417,145 @@ public class Principal {
         	
         	Registro = new JPanel();
         	Registro.setBorder(null);
-        	GridBagConstraints gbc_Registro = new GridBagConstraints();
-        	gbc_Registro.fill = GridBagConstraints.BOTH;
-        	gbc_Registro.gridx = 0;
-        	gbc_Registro.gridy = 1;
-        	frame.getContentPane().add(Registro, gbc_Registro);
-        	Registro.setLayout(null);
+        	frame.getContentPane().add(Registro, "name_411968859242604");
         	Registro.setVisible(false);
         	
         	lblRegistro = new JLabel("Registro");
-        	lblRegistro.setBounds(151, 6, 144, 49);
         	lblRegistro.setFont(new Font("Tahoma", Font.PLAIN, 40));
-        	Registro.add(lblRegistro);
         	lblRegistro.setVisible(false);
-        	
-        	lblNombre2 = new JLabel("Usuario");
-        	lblNombre2.setBounds(96, 141, 46, 14);
-        	Registro.add(lblNombre2);
-        	lblNombre2.setVisible(false);
-        	
-        	lblContrasena2 = new JLabel("Contrase\u00F1a");
-        	lblContrasena2.setBounds(80, 182, 75, 14);
-        	Registro.add(lblContrasena2);
-        	lblContrasena2.setVisible(false);
-        	
-        	txtNombre2 = new JTextField();
-        	txtNombre2.setBounds(165, 138, 86, 20);
-        	Registro.add(txtNombre2);
-        	txtNombre2.setColumns(10);
-        	
-        	txtContrasea = new JTextField();
-        	txtContrasea.setBounds(165, 179, 86, 20);
-        	Registro.add(txtContrasea);
-        	txtContrasea.setColumns(10);
-        	
-        	btnRegistrarse2 = new JButton("Registrarse");
-        	btnRegistrarse2.setBounds(10, 254, 161, 23);
-        	btnRegistrarse2.setVisible(false);
-        	Registro.add(btnRegistrarse2);
         	
         	btnRegresar = new JButton("Regresar");
         	btnRegresar.addActionListener(new menuListener());
-        	btnRegresar.setBounds(218, 254, 161, 23);
         	btnRegresar.setVisible(false);
-        	Registro.add(btnRegresar);
- 
-        
-        	lblNombre_1 = new JLabel("Usuario");
-        	lblNombre_1.setBounds(96, 141, 46, 14);
         	
+        	lblNombre2 = new JLabel("Usuario");
+        	lblNombre2.setVisible(false);
         	
-        	lblContrasea = new JLabel("Contrase\u00F1a");
-        	lblContrasea.setBounds(80, 182, 70, 14);
+        	txtNombre2 = new JTextField();
+        	txtNombre2.setColumns(10);
         	
+        	btnRegistrarse2 = new JButton("Registrarse");
+        	btnRegistrarse2.setVisible(false);
         	
-        	txtNombre = new JTextField();
-        	txtNombre.setBounds(165, 138, 86, 20);
-        	txtNombre.setColumns(10);
+        	lblContrasena2 = new JLabel("Contrase\u00F1a");
+        	lblContrasena2.setVisible(false);
         	
-        	passwordField = new JPasswordField();
-        	passwordField.setBounds(165, 179, 86, 20);
-        	
-        	btnIngresar = new JButton("Ingresar");
-        	btnIngresar.setBounds(80, 228, 89, 23);
-        	btnIngresar.addActionListener(new menuListener());
+        	txtContrasea = new JTextField();
+        	txtContrasea.setColumns(10);
+        	GroupLayout gl_Registro = new GroupLayout(Registro);
+        	gl_Registro.setHorizontalGroup(
+        		gl_Registro.createParallelGroup(Alignment.LEADING)
+        			.addGroup(gl_Registro.createSequentialGroup()
+        				.addGap(132)
+        				.addComponent(lblRegistro))
+        			.addGroup(gl_Registro.createSequentialGroup()
+        				.addGap(84)
+        				.addComponent(lblNombre2)
+        				.addGap(35)
+        				.addComponent(txtNombre2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGroup(gl_Registro.createSequentialGroup()
+        				.addGap(92)
+        				.addComponent(lblContrasena2)
+        				.addGap(5)
+        				.addComponent(txtContrasea, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGroup(gl_Registro.createSequentialGroup()
+        				.addComponent(btnRegistrarse2, GroupLayout.PREFERRED_SIZE, 187, GroupLayout.PREFERRED_SIZE)
+        				.addGap(52)
+        				.addComponent(btnRegresar, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE))
+        	);
+        	gl_Registro.setVerticalGroup(
+        		gl_Registro.createParallelGroup(Alignment.LEADING)
+        			.addGroup(gl_Registro.createSequentialGroup()
+        				.addComponent(lblRegistro)
+        				.addGap(88)
+        				.addGroup(gl_Registro.createParallelGroup(Alignment.LEADING)
+        					.addGroup(gl_Registro.createSequentialGroup()
+        						.addGap(3)
+        						.addComponent(lblNombre2))
+        					.addComponent(txtNombre2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        				.addGap(5)
+        				.addGroup(gl_Registro.createParallelGroup(Alignment.LEADING)
+        					.addGroup(gl_Registro.createSequentialGroup()
+        						.addGap(3)
+        						.addComponent(lblContrasena2))
+        					.addComponent(txtContrasea, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        				.addGap(60)
+        				.addGroup(gl_Registro.createParallelGroup(Alignment.LEADING)
+        					.addComponent(btnRegistrarse2)
+        					.addComponent(btnRegresar)))
+        	);
+        	Registro.setLayout(gl_Registro);
         	
         	Menu = new JPanel();
         	Menu.setBorder(null);
-        	GridBagConstraints gbc_Menu = new GridBagConstraints();
-        	gbc_Menu.fill = GridBagConstraints.BOTH;
-        	gbc_Menu.gridx = 0;
-        	gbc_Menu.gridy = 1;
-        	frame.getContentPane().add(Menu, gbc_Menu);
-        	Menu.setLayout(null);
+        	frame.getContentPane().add(Menu, "name_411968872411943");
+        	GridBagLayout gbl_Menu = new GridBagLayout();
+        	gbl_Menu.columnWidths = new int[]{80, 70, 0};
+        	gbl_Menu.rowHeights = new int[]{49, 20, 20, 24, 0};
+        	gbl_Menu.columnWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
+        	gbl_Menu.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+        	Menu.setLayout(gbl_Menu);
+        	Menu.setVisible(true);
+        	       	
+	       	JLabel lblMenu = new JLabel("Menu");
+	       	GridBagConstraints gbc_lblMenu = new GridBagConstraints();
+	       	gbc_lblMenu.anchor = GridBagConstraints.NORTH;
+	       	gbc_lblMenu.insets = new Insets(0, 0, 5, 0);
+	       	gbc_lblMenu.gridwidth = 2;
+	       	gbc_lblMenu.gridx = 0;
+	       	gbc_lblMenu.gridy = 0;
+	       	Menu.add(lblMenu, gbc_lblMenu);
+	       	lblMenu.setFont(new Font("Tahoma", Font.PLAIN, 40));
+	
+	       
+	       	lblNombre_1 = new JLabel("Usuario");
+	       	GridBagConstraints gbc_lblNombre_1 = new GridBagConstraints();
+	       	gbc_lblNombre_1.insets = new Insets(0, 0, 5, 5);
+	       	gbc_lblNombre_1.gridx = 0;
+	       	gbc_lblNombre_1.gridy = 1;
+	       	Menu.add(lblNombre_1, gbc_lblNombre_1);
         	
-        	JLabel lblMenu = new JLabel("Menu");
-        	lblMenu.setBounds(151, 6, 144, 49);
-        	Menu.add(lblMenu);
-        	lblMenu.setFont(new Font("Tahoma", Font.PLAIN, 40));
+        	
+        	txtNombre = new JTextField();
+        	txtNombre.setColumns(10);
+        	GridBagConstraints gbc_txtNombre = new GridBagConstraints();
+        	gbc_txtNombre.fill = GridBagConstraints.BOTH;
+        	gbc_txtNombre.insets = new Insets(0, 0, 5, 0);
+        	gbc_txtNombre.gridx = 1;
+        	gbc_txtNombre.gridy = 1;
+        	Menu.add(txtNombre, gbc_txtNombre);
+        	
+        	
+        	lblContrasea = new JLabel("Contrase\u00F1a");
+        	GridBagConstraints gbc_lblContrasea = new GridBagConstraints();
+        	gbc_lblContrasea.insets = new Insets(0, 0, 5, 5);
+        	gbc_lblContrasea.gridx = 0;
+        	gbc_lblContrasea.gridy = 2;
+        	Menu.add(lblContrasea, gbc_lblContrasea);
+        	
+        	btnIngresar = new JButton("Ingresar");
+        	btnIngresar.addActionListener(new menuListener());
+        	
+        	passwordField = new JPasswordField();
+        	GridBagConstraints gbc_passwordField = new GridBagConstraints();
+        	gbc_passwordField.fill = GridBagConstraints.BOTH;
+        	gbc_passwordField.insets = new Insets(0, 0, 5, 0);
+        	gbc_passwordField.gridx = 1;
+        	gbc_passwordField.gridy = 2;
+        	Menu.add(passwordField, gbc_passwordField);
+        	GridBagConstraints gbc_btnIngresar = new GridBagConstraints();
+        	gbc_btnIngresar.fill = GridBagConstraints.HORIZONTAL;
+        	gbc_btnIngresar.insets = new Insets(0, 0, 0, 5);
+        	gbc_btnIngresar.gridx = 0;
+        	gbc_btnIngresar.gridy = 3;
+        	Menu.add(btnIngresar, gbc_btnIngresar);
         	
         	btnRegistrarse = new JButton("Registrarse");
-        	btnRegistrarse.setBounds(200, 229, 119, 23);
-        	Menu.add(btnRegistrarse);
-        	Menu.add(lblNombre_1);
-        	Menu.add(txtNombre);
-        	Menu.add(lblContrasea);
-        	Menu.add(passwordField);
-        	Menu.add(btnIngresar);
+        	GridBagConstraints gbc_btnRegistrarse = new GridBagConstraints();
+        	gbc_btnRegistrarse.fill = GridBagConstraints.HORIZONTAL;
+        	gbc_btnRegistrarse.gridx = 1;
+        	gbc_btnRegistrarse.gridy = 3;
+        	Menu.add(btnRegistrarse, gbc_btnRegistrarse);
         	btnRegistrarse.addActionListener(new menuListener());
 		
 		
