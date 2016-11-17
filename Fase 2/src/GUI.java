@@ -25,7 +25,7 @@ import java.awt.SystemColor;
 
 public class GUI {
 
-	private JFrame frame;
+	private JFrame frmMenuPrincipal;
 	private JTextField txtNombre;
 	private JPasswordField passwordField;
 	private JTextField txtNombre2;
@@ -68,6 +68,7 @@ public class GUI {
 	private JLabel lblMunicipio, lblDineroAhorrado;
 	private JComboBox<Object> comboBoxMunicipio;
 	private JLabel lblDineroRecibido;
+	private JLabel lblNewLabel_1;
 
 	/**
 	 * Launch the application.
@@ -77,7 +78,7 @@ public class GUI {
 			public void run() {
 				try {
 					GUI window = new GUI();
-					window.frame.setVisible(true);
+					window.frmMenuPrincipal.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -109,15 +110,16 @@ public class GUI {
 			guate= new CiudadVerde();
 			connection = new Conector();
 			
-			frame = new JFrame();
-			frame.getContentPane().setBackground(new Color(255, 255, 255));
-			frame.setBounds(100, 100, 838, 618);
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frmMenuPrincipal = new JFrame();
+			frmMenuPrincipal.setTitle("Menu Principal");
+			frmMenuPrincipal.getContentPane().setBackground(new Color(255, 255, 255));
+			frmMenuPrincipal.setBounds(100, 100, 838, 618);
+			frmMenuPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         	
         	tabbedPane = new JTabbedPane(JTabbedPane.TOP);
         	tabbedPane.setVisible(false);
-        	frame.getContentPane().setLayout(new CardLayout(0, 0));
-        	frame.getContentPane().add(tabbedPane, "name_411968820848809");
+        	frmMenuPrincipal.getContentPane().setLayout(new CardLayout(0, 0));
+        	frmMenuPrincipal.getContentPane().add(tabbedPane, "name_411968820848809");
         	
         	JPanel Buscar = new JPanel();
         	tabbedPane.addTab("Buscar", null, Buscar, null);
@@ -327,7 +329,7 @@ public class GUI {
         	
         	Registro = new JPanel();
         	Registro.setBorder(null);
-        	frame.getContentPane().add(Registro, "name_411968859242604");
+        	frmMenuPrincipal.getContentPane().add(Registro, "name_411968859242604");
         	Registro.setVisible(false);
         	
         	lblNombre2 = new JLabel("Usuario");
@@ -376,13 +378,13 @@ public class GUI {
         	 */
         	
         	Menu = new JPanel();
-        	Menu.setBackground(Color.ORANGE);
+        	Menu.setBackground(SystemColor.window);
         	Menu.setBorder(null);
-        	frame.getContentPane().add(Menu, "name_411968872411943");
+        	frmMenuPrincipal.getContentPane().add(Menu, "name_411968872411943");
         	Menu.setVisible(true);
         	       	
 	       	JLabel lblMenu = new JLabel("Menu");
-	       	lblMenu.setBounds(207, 91, 430, 128);
+	       	lblMenu.setBounds(274, 91, 430, 128);
 	       	lblMenu.setFont(new Font("Curlz MT", Font.BOLD, 72));
 	
 	       	lblNombre_1 = new JLabel("Usuario");
@@ -420,6 +422,11 @@ public class GUI {
         	Menu.add(btnRegistrarse);
         	Menu.add(passwordField);
         	Menu.add(txtNombre);
+        	
+        	lblNewLabel_1 = new JLabel("New label");
+        	lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Universidad Del Valle de Guatemala\\Primer A\u00F1o\\Segundo Semestre\\Imagenes_Progra\\dia-del-reciclaje-index.jpg"));
+        	lblNewLabel_1.setBounds(-33, 0, 822, 573);
+        	Menu.add(lblNewLabel_1);
 		
 		
 		
@@ -578,7 +585,7 @@ public class GUI {
 				try{
 					double cantidad= Double.parseDouble(txtCantidad.getText());
 					if (txtCantidad.getText().length()==0){
-						JOptionPane.showMessageDialog(frame,"La caja de texto no contiene nï¿½meros.","Inane warning",JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(frmMenuPrincipal,"La caja de texto no contiene nï¿½meros.","Inane warning",JOptionPane.WARNING_MESSAGE);
 					}
 					else{
 						//si presiona el boton hay programacion defensiva y se ejecutan las instrucciones correspondientes
@@ -602,11 +609,11 @@ public class GUI {
 							lblDineroRecibido.setText("Además, recibirá Q"+c.RecicladoMateriales(cantidad,dimensional,material)+" de parte de la recicladora.");
 						}
 						catch (Exception e3){
-							JOptionPane.showMessageDialog(frame,"Ingrese un nï¿½mero.","Inane warning",JOptionPane.WARNING_MESSAGE);
+							JOptionPane.showMessageDialog(frmMenuPrincipal,"Ingrese un nï¿½mero.","Inane warning",JOptionPane.WARNING_MESSAGE);
 						}
 					}
 				}catch (Exception e4){
-					JOptionPane.showMessageDialog(frame,"Ingrese un nï¿½mero.","Inane warning",JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(frmMenuPrincipal,"Ingrese un nï¿½mero.","Inane warning",JOptionPane.WARNING_MESSAGE);
 				}
 			}
 			
