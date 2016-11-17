@@ -315,6 +315,11 @@ public class GUI {
         	lblDineroRecibido.setBounds(326, 225, 366, 16);
         	Reciclar.add(lblDineroRecibido);
         	
+        	JLabel lblNewLabel = new JLabel("New label");
+        	lblNewLabel.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Universidad Del Valle de Guatemala\\Primer A\u00F1o\\Segundo Semestre\\Imagenes_Progra\\reciclando.jpg"));
+        	lblNewLabel.setBounds(-10, 341, 848, 273);
+        	Reciclar.add(lblNewLabel);
+        	
         	/**
     		 * el panel de registro sirve para que una persona cree su usuario, esta oculto al inicio 
     		 * Posee un boton de registro y uno para regresar al menu principal
