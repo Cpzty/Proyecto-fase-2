@@ -69,6 +69,7 @@ public class GUI {
 	private JComboBox<Object> comboBoxMunicipio;
 	private JLabel lblDineroRecibido;
 	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
 
 	/**
 	 * Launch the application.
@@ -317,8 +318,8 @@ public class GUI {
         	lblDineroRecibido.setBounds(326, 225, 366, 16);
         	Reciclar.add(lblDineroRecibido);
         	
-        	JLabel lblNewLabel = new JLabel("New label");
-        	lblNewLabel.setIcon(new ImageIcon("fondo1"));
+        	JLabel lblNewLabel = new JLabel("");
+        	lblNewLabel.setIcon(new ImageIcon("reciclando.jpg"));
         	lblNewLabel.setBounds(-10, 341, 848, 273);
         	Reciclar.add(lblNewLabel);
         	
@@ -378,6 +379,11 @@ public class GUI {
         	btnRegresar.setVisible(false);
         	Registro.add(btnRegresar);
         	
+        	lblNewLabel_2 = new JLabel("New label");
+        	lblNewLabel_2.setIcon(new ImageIcon("logo"));
+        	lblNewLabel_2.setBounds(-24, -4, 836, 579);
+        	Registro.add(lblNewLabel_2);
+        	
         	/**
         	 * el menu principal es el panel que esta visible cuando se inicia el programa
         	 * Contiene un boton de ingreso y un boton que vuelve visible el panel de registro y el menu deja de ser visible
@@ -431,8 +437,8 @@ public class GUI {
         	Menu.add(passwordField);
         	Menu.add(txtNombre);
         	
-        	lblNewLabel_1 = new JLabel("New label");
-        	lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Programas en JAVA (UVG)\\fase 2\\Proyecto-fase-2\\fondo1.jpg"));
+        	lblNewLabel_1 = new JLabel("");
+        	lblNewLabel_1.setIcon(new ImageIcon("fondo1.jpg"));
         	lblNewLabel_1.setBounds(-252, 0, 1074, 573);
         	Menu.add(lblNewLabel_1);
 		
