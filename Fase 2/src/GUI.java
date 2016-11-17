@@ -58,6 +58,7 @@ public class GUI {
 	private JComboBox<Integer> CBZona;
 	private JLabel lblNombre,lblDireccion, lblTelefono, lblPagina;
 	private CiudadVerde guate;
+	private Conector connection;
 	private JComboBox<String> cbxMateriales;
 	private JComboBox<String> cbxDimensional;
 	private JTextField txtCantidad;
@@ -105,10 +106,9 @@ public class GUI {
 	/**
 	 * Create the application.
 	 */
-	Connection connection = null;
 	public GUI() {
-		connection = Conector.ConnectDB();
 		initialize();
+		//connection.conectar();
 		ComboBox();
 		Random();
 	}
@@ -120,6 +120,8 @@ public class GUI {
 	private void initialize() {
 		
 			guate= new CiudadVerde();
+			connection = new Conector();
+			
 			frame = new JFrame();
 			frame.getContentPane().setBackground(new Color(255, 255, 255));
 			frame.setBounds(100, 100, 585, 522);
@@ -452,6 +454,7 @@ public class GUI {
         	
         	btnRegistrarse2 = new JButton("Registrarse");
         	btnRegistrarse2.setVisible(false);
+        	btnRegistrarse2.addActionListener(new menuListener());
         	
         	lblContrasena2 = new JLabel("Contrase\u00F1a");
         	lblContrasena2.setVisible(false);
@@ -741,19 +744,15 @@ public class GUI {
 				btnRegresar.setVisible(false);
 				btnRegistrarse2.setVisible(true);
 			}else if (event.getSource().equals(btnIngresar)){
-				
-				try {
-					String query = "select * from ReciGuate where USUARIO=? and password=? ";
-					PreparedStatement pst= connection.prepareStatement(query);
-					pst.setString(1, txtNombre.getText());
-					pst.setString(2, passwordField.getText());
-					
-					int count = 0;
-					ResultSet rs=pst.executeQuery();
-					while(rs.next()){
-						count = count +1;
-					}
-					if(count==1){
+				String nombre = txtNombre.getText();
+				char[] password = passwordField.getPassword();
+				String contrasenia = "";
+				for (int i = 0; i < password.length; i++){
+					contrasenia = contrasenia + password[i];
+				}
+				boolean login = connection.buscar(nombre, contrasenia);
+
+					if(login){
 						JOptionPane.showMessageDialog(null, "username and password is correct");
 						Menu.setVisible(false);
 						lblNombre_1.setVisible(false);
@@ -771,23 +770,10 @@ public class GUI {
 						btnRegistrarse2.setVisible(false);
 						lblRegistro.setVisible(true);
 						tabbedPane.setVisible(true);
-					}
-					
-					else if(count>1){
-						JOptionPane.showMessageDialog(null, "Duplicate and username and password");
-					}
-					
+					}				
 					else{
 						JOptionPane.showMessageDialog(null, "username or password is not correct");
 					}
-			         
-					rs.close();
-					pst.close();
-					
-			      } catch (Exception e) {
-			         JOptionPane.showMessageDialog(null, e);
-			      }
-				
 			     
 				
 				
@@ -806,6 +792,13 @@ public class GUI {
         		txtContrasea.setVisible(true);
         		btnRegresar.setVisible(true);
         		btnRegistrarse2.setVisible(true);
+			}else if (event.getSource().equals(btnRegistrarse2)){
+				String nombre = txtNombre2.getText();
+				String contrasenia = txtContrasea.getText();
+				String sql = "INSERT INTO USUARIOS (ID,NAME,PASSWORD) "
+			               + "VALUES (2,'"+nombre+"', '"+contrasenia+"');";
+				
+				connection.agregar(sql);
 			}
 			
 		}

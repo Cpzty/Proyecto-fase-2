@@ -111,7 +111,7 @@ public class Principal {
 	private JLabel lblMunicipio;
 	public Principal() {
 		initialize();
-		conector = Conector.ConnectDB();
+		//conector = Conector.ConnectDB();
 		ComboBox();
 		Random();
 	}
