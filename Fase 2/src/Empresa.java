@@ -19,18 +19,18 @@ public class Empresa {
             "postgres", "root");// Instrucción que obtiene la conexion de la base de datos, incluye el nombre d ela base, el puerto , contraseña y host 
          System.out.println("Opened database successfully");//Mensaje que indica que la base de datos se ha abierto satisfactoriamente 
 
-         stmt = c.createStatement();
+         stmt = c.createStatement();// Se instancia el statement que se enviará a la base de datos
          String sql = "CREATE TABLE EMPRESA " +
                  "(ID INT PRIMARY KEY     NOT NULL," +
                  " NOMBRE           TEXT    NOT NULL, " +
-                 " PASSWORD         INT     NOT NULL),"; 
-         stmt.executeUpdate(sql);
-         stmt.close();
-         c.close();
+                 " PASSWORD         INT     NOT NULL)"; //Instrucción sql que inserta los datos (compontentes) de la tabla en la base de datos 
+         stmt.executeUpdate(sql);//Se cierra el envio 
+         stmt.close();//Se cierra el statement
+         c.close();//Se cierra la conexion a la base de datos
        } catch ( Exception e ) {
          System.err.println( e.getClass().getName()+": "+ e.getMessage() );
          System.exit(0);
        }
-       System.out.println("Table created successfully");
+       System.out.println("Table created successfully");//Mensaje que indica al usuario que la tabla fue creada de manera exitosa 
      }
 }
