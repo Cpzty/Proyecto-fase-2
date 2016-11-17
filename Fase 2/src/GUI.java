@@ -70,6 +70,7 @@ public class GUI {
 	private JLabel lblDineroRecibido;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
 
 	/**
 	 * Launch the application.
@@ -114,7 +115,7 @@ public class GUI {
 			frmMenuPrincipal = new JFrame();
 			frmMenuPrincipal.setTitle("Menu Principal");
 			frmMenuPrincipal.getContentPane().setBackground(new Color(255, 255, 255));
-			frmMenuPrincipal.setBounds(100, 100, 838, 618);
+			frmMenuPrincipal.setBounds(100, 100, 838, 645);
 			frmMenuPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         	
         	tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -124,7 +125,7 @@ public class GUI {
         	
         	JPanel Buscar = new JPanel();
         	tabbedPane.addTab("Buscar", null, Buscar, null);
-        	Buscar.setBackground(new Color(204, 255, 153));
+        	Buscar.setBackground(SystemColor.window);
         	Buscar.setForeground(new Color(0, 0, 0));
         	
         	lblMaterial = new JLabel("Material:");
@@ -133,7 +134,7 @@ public class GUI {
         	
         	lblNombre = new JLabel("Nombre");
         	lblNombre.setBounds(334, 17, 328, 33);
-        	lblNombre.setForeground(new Color(0, 102, 0));
+        	lblNombre.setForeground(new Color(0, 0, 51));
         	lblNombre.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
         	
         	CBMaterial = new JComboBox<String>();
@@ -143,18 +144,18 @@ public class GUI {
         	
         	lblDireccion = new JLabel("Direccion");
         	lblDireccion.setBounds(333, 61, 328, 24);
-        	lblDireccion.setForeground(new Color(0, 102, 0));
+        	lblDireccion.setForeground(new Color(0, 0, 51));
         	lblDireccion.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
         	
         	lblZona = new JLabel("Zona: ");
         	lblZona.setBounds(40, 154, 80, 40);
-        	lblZona.setForeground(new Color(0, 102, 0));
+        	lblZona.setForeground(new Color(0, 51, 0));
         	lblZona.setBackground(new Color(51, 204, 51));
         	lblZona.setFont(new Font("Sylfaen", Font.PLAIN, 30));
         	
         	lblTelefono = new JLabel("Telefono");
         	lblTelefono.setBounds(336, 100, 328, 24);
-        	lblTelefono.setForeground(new Color(0, 102, 0));
+        	lblTelefono.setForeground(new Color(0, 0, 51));
         	lblTelefono.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
         	
         	CBZona = new JComboBox<Integer>();
@@ -164,7 +165,7 @@ public class GUI {
         	
         	lblPagina = new JLabel("Pagina Web");
         	lblPagina.setBounds(337, 141, 328, 24);
-        	lblPagina.setForeground(new Color(0, 102, 0));
+        	lblPagina.setForeground(new Color(0, 0, 51));
         	lblPagina.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
         	
         	btnBuscarEmpresa = new JButton("Buscar empresa");
@@ -174,13 +175,13 @@ public class GUI {
         	btnBuscarEmpresa.addActionListener(new actionlistener());
         	
         	lblMapa = new JLabel("");
-        	lblMapa.setBounds(405, 274, 347, 186);
+        	lblMapa.setBounds(320, 325, 347, 186);
         	lblMapa.setForeground(new Color(0, 128, 0));
         	lblMapa.setVisible(false);
         	
         	lblDatoCurioso = new JLabel("Dato curioso:");
         	lblDatoCurioso.setBounds(0, 471, 562, 16);
-        	lblDatoCurioso.setForeground(new Color(51, 204, 102));
+        	lblDatoCurioso.setForeground(new Color(0, 204, 51));
         	
         	comboBoxMunicipio = new JComboBox<Object>();
         	comboBoxMunicipio.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 18));
@@ -201,11 +202,16 @@ public class GUI {
         	Buscar.add(lblTelefono);
         	
         	lblMunicipio = new JLabel("Area");
-        	lblMunicipio.setForeground(new Color(0, 102, 0));
+        	lblMunicipio.setForeground(new Color(0, 51, 0));
         	lblMunicipio.setFont(new Font("Sylfaen", Font.PLAIN, 30));
         	lblMunicipio.setBackground(new Color(51, 204, 51));
         	lblMunicipio.setBounds(36, 79, 146, 40);
         	Buscar.add(lblMunicipio);
+        	
+        	lblNewLabel_3 = new JLabel("New label");
+        	lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Programas en JAVA (UVG)\\fase 2\\Proyecto-fase-2\\fondo.png"));
+        	lblNewLabel_3.setBounds(-206, -56, 1023, 594);
+        	Buscar.add(lblNewLabel_3);
         	
         	JPanel VerRecicladoras = new JPanel();
         	VerRecicladoras.setBackground(new Color(204, 255, 153));
@@ -336,11 +342,11 @@ public class GUI {
         	
         	lblNombre2 = new JLabel("Usuario");
         	lblNombre2.setFont(new Font("Sylfaen", Font.PLAIN, 20));
-        	lblNombre2.setBounds(293, 148, 88, 16);
+        	lblNombre2.setBounds(271, 166, 88, 16);
         	lblNombre2.setVisible(false);
         	
         	lblRegistro = new JLabel("Registro");
-        	lblRegistro.setBounds(293, 0, 265, 96);
+        	lblRegistro.setBounds(277, 11, 265, 96);
         	lblRegistro.setVisible(false);
         	Registro.setLayout(null);
         	Registro.add(lblRegistro);
@@ -349,39 +355,39 @@ public class GUI {
         	
         	lblContrasena2 = new JLabel("Contrase\u00F1a");
         	lblContrasena2.setFont(new Font("Sylfaen", Font.PLAIN, 20));
-        	lblContrasena2.setBounds(272, 175, 109, 16);
+        	lblContrasena2.setBounds(250, 193, 109, 16);
         	lblContrasena2.setVisible(false);
         	
         	txtNombre2 = new JTextField();
         	txtNombre2.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 15));
-        	txtNombre2.setBounds(386, 145, 161, 22);
+        	txtNombre2.setBounds(364, 163, 161, 22);
         	txtNombre2.setColumns(10);
         	Registro.add(txtNombre2);
         	Registro.add(lblContrasena2);
         	
         	btnRegistrarse2 = new JButton("Registrarse");
         	btnRegistrarse2.setFont(new Font("Kristen ITC", Font.PLAIN, 20));
-        	btnRegistrarse2.setBounds(306, 223, 285, 37);
+        	btnRegistrarse2.setBounds(284, 241, 285, 37);
         	btnRegistrarse2.setVisible(false);
         	btnRegistrarse2.addActionListener(new menuListener());
         	
         	txtContrasea = new JTextField();
         	txtContrasea.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 15));
-        	txtContrasea.setBounds(386, 172, 161, 22);
+        	txtContrasea.setBounds(364, 190, 161, 22);
         	txtContrasea.setColumns(10);
         	Registro.add(txtContrasea);
         	Registro.add(btnRegistrarse2);
         	
         	btnRegresar = new JButton("Regresar");
         	btnRegresar.setFont(new Font("Kristen ITC", Font.PLAIN, 16));
-        	btnRegresar.setBounds(341, 271, 234, 25);
+        	btnRegresar.setBounds(319, 289, 234, 25);
         	btnRegresar.addActionListener(new menuListener());
         	btnRegresar.setVisible(false);
         	Registro.add(btnRegresar);
         	
         	lblNewLabel_2 = new JLabel("");
-        	lblNewLabel_2.setIcon(new ImageIcon("logo"));
-        	lblNewLabel_2.setBounds(-130, 0, 836, 579);
+        	lblNewLabel_2.setIcon(new ImageIcon("logo.png"));
+        	lblNewLabel_2.setBounds(71, -63, 812, 635);
         	Registro.add(lblNewLabel_2);
         	
         	/**
@@ -397,12 +403,12 @@ public class GUI {
         	Menu.setVisible(true);
         	       	
 	       	JLabel lblMenu = new JLabel("Menu");
-	       	lblMenu.setBounds(299, 47, 192, 128);
+	       	lblMenu.setBounds(287, 11, 192, 128);
 	       	lblMenu.setFont(new Font("Curlz MT", Font.BOLD, 72));
 	
 	       	lblNombre_1 = new JLabel("Usuario");
 	       	lblNombre_1.setForeground(SystemColor.infoText);
-	       	lblNombre_1.setBounds(83, 230, 248, 67);
+	       	lblNombre_1.setBounds(123, 224, 248, 67);
 	       	lblNombre_1.setFont(new Font("Perpetua", Font.BOLD, 30));
         	
         	txtNombre = new JTextField();
@@ -411,7 +417,7 @@ public class GUI {
         	txtNombre.setColumns(10);
         	
         	lblContrasea = new JLabel("Contrase\u00F1a");
-        	lblContrasea.setBounds(83, 316, 261, 67);
+        	lblContrasea.setBounds(123, 323, 261, 67);
         	lblContrasea.setFont(new Font("Perpetua", Font.BOLD, 30));
         	
         	btnIngresar = new JButton("Ingresar");
@@ -438,13 +444,10 @@ public class GUI {
         	Menu.add(txtNombre);
         	
         	lblNewLabel_1 = new JLabel("");
-        	lblNewLabel_1.setIcon(new ImageIcon("fondo1.jpg"));
-        	lblNewLabel_1.setBounds(-252, 0, 1074, 573);
+        	lblNewLabel_1.setIcon(new ImageIcon("imagen.jpg"));
+        	lblNewLabel_1.setBounds(-234, 50, 1046, 660);
         	Menu.add(lblNewLabel_1);
-		
-		
-		
-		
+     	
 		
 	}
 	/**
