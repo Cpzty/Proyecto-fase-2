@@ -71,6 +71,7 @@ public class GUI {
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
 
 	/**
 	 * Launch the application.
@@ -175,7 +176,7 @@ public class GUI {
         	btnBuscarEmpresa.addActionListener(new actionlistener());
         	
         	lblMapa = new JLabel("");
-        	lblMapa.setBounds(320, 325, 347, 186);
+        	lblMapa.setBounds(424, 301, 347, 186);
         	lblMapa.setForeground(new Color(0, 128, 0));
         	lblMapa.setVisible(false);
         	
@@ -212,44 +213,6 @@ public class GUI {
         	lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Programas en JAVA (UVG)\\fase 2\\Proyecto-fase-2\\fondo.png"));
         	lblNewLabel_3.setBounds(-206, -56, 1023, 594);
         	Buscar.add(lblNewLabel_3);
-        	
-        	JPanel VerRecicladoras = new JPanel();
-        	VerRecicladoras.setBackground(new Color(204, 255, 153));
-        	tabbedPane.addTab("Ver Todas las Recicladoras", null, VerRecicladoras, null);
-        	VerRecicladoras.setLayout(null);
-        	
-        	JLabel lblSeleccioneElNombre = new JLabel("Seleccione el Nombre de la Empresa:");
-        	lblSeleccioneElNombre.setBounds(0, 0, 215, 20);
-        	VerRecicladoras.add(lblSeleccioneElNombre);
-        	
-        	comboBoxNombres = new JComboBox<String>();
-        	comboBoxNombres.setBounds(0, 25, 31, 22);
-        	VerRecicladoras.add(comboBoxNombres);
-        	
-        	btnVerInformacion = new JButton("Ver Informacion");
-        	btnVerInformacion.setBounds(0, 52, 125, 25);
-        	VerRecicladoras.add(btnVerInformacion);
-        	btnVerInformacion.addActionListener(new actionlistener());
-        	
-        	lblInfoNombre = new JLabel("Nombre");
-        	lblInfoNombre.setBounds(0, 82, 469, 16);
-        	lblInfoNombre.setForeground(new Color(0, 102, 0));
-        	VerRecicladoras.add(lblInfoNombre);
-        	
-        	lblInfoDireccion = new JLabel("Direccion");
-        	lblInfoDireccion.setBounds(0, 103, 469, 16);
-        	lblInfoDireccion.setForeground(new Color(0, 102, 0));
-        	VerRecicladoras.add(lblInfoDireccion);
-        	
-        	lblInfoTel = new JLabel("Telefono");
-        	lblInfoTel.setBounds(0, 124, 469, 16);
-        	lblInfoTel.setForeground(new Color(0, 102, 0));
-        	VerRecicladoras.add(lblInfoTel);
-        	
-        	lblInfoWeb = new JLabel("Pagina Web");
-        	lblInfoWeb.setBounds(0, 145, 469, 16);
-        	lblInfoWeb.setForeground(new Color(0, 102, 0));
-        	VerRecicladoras.add(lblInfoWeb);
         	
         	JPanel Reciclar = new JPanel();
         	tabbedPane.addTab("Reciclar", null, Reciclar, null);
@@ -329,6 +292,56 @@ public class GUI {
         	lblNewLabel.setBounds(-10, 341, 848, 273);
         	Reciclar.add(lblNewLabel);
         	
+        	JPanel VerRecicladoras = new JPanel();
+        	VerRecicladoras.setBackground(new Color(255, 255, 255));
+        	tabbedPane.addTab("Ver Todas las Recicladoras", null, VerRecicladoras, null);
+        	VerRecicladoras.setLayout(null);
+        	
+        	JLabel lblSeleccioneElNombre = new JLabel("Seleccione el Nombre de la Empresa:");
+        	lblSeleccioneElNombre.setFont(new Font("Sylfaen", Font.PLAIN, 22));
+        	lblSeleccioneElNombre.setBounds(226, 8, 372, 20);
+        	VerRecicladoras.add(lblSeleccioneElNombre);
+        	
+        	comboBoxNombres = new JComboBox<String>();
+        	comboBoxNombres.setFont(new Font("Microsoft JhengHei UI Light", Font.PLAIN, 17));
+        	comboBoxNombres.setBounds(283, 52, 230, 22);
+        	VerRecicladoras.add(comboBoxNombres);
+        	
+        	btnVerInformacion = new JButton("Ver Informacion");
+        	btnVerInformacion.setFont(new Font("Kristen ITC", Font.PLAIN, 18));
+        	btnVerInformacion.setBounds(389, 101, 238, 25);
+        	VerRecicladoras.add(btnVerInformacion);
+        	btnVerInformacion.addActionListener(new actionlistener());
+        	
+        	lblInfoNombre = new JLabel("Nombre");
+        	lblInfoNombre.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 18));
+        	lblInfoNombre.setBounds(53, 174, 547, 30);
+        	lblInfoNombre.setForeground(new Color(0, 102, 0));
+        	VerRecicladoras.add(lblInfoNombre);
+        	
+        	lblInfoDireccion = new JLabel("Direccion");
+        	lblInfoDireccion.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 18));
+        	lblInfoDireccion.setBounds(51, 215, 547, 25);
+        	lblInfoDireccion.setForeground(new Color(0, 102, 0));
+        	VerRecicladoras.add(lblInfoDireccion);
+        	
+        	lblInfoTel = new JLabel("Telefono");
+        	lblInfoTel.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 18));
+        	lblInfoTel.setBounds(53, 257, 547, 31);
+        	lblInfoTel.setForeground(new Color(0, 102, 0));
+        	VerRecicladoras.add(lblInfoTel);
+        	
+        	lblInfoWeb = new JLabel("Pagina Web");
+        	lblInfoWeb.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 18));
+        	lblInfoWeb.setBounds(51, 310, 547, 31);
+        	lblInfoWeb.setForeground(new Color(0, 102, 0));
+        	VerRecicladoras.add(lblInfoWeb);
+        	
+        	lblNewLabel_4 = new JLabel("New label");
+        	lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Programas en JAVA (UVG)\\fase 2\\Proyecto-fase-2\\logo.png"));
+        	lblNewLabel_4.setBounds(80, 8, 691, 578);
+        	VerRecicladoras.add(lblNewLabel_4);
+        	
         	/**
     		 * el panel de registro sirve para que una persona cree su usuario, esta oculto al inicio 
     		 * Posee un boton de registro y uno para regresar al menu principal
@@ -355,7 +368,7 @@ public class GUI {
         	
         	lblContrasena2 = new JLabel("Contrase\u00F1a");
         	lblContrasena2.setFont(new Font("Sylfaen", Font.PLAIN, 20));
-        	lblContrasena2.setBounds(250, 193, 109, 16);
+        	lblContrasena2.setBounds(250, 201, 109, 16);
         	lblContrasena2.setVisible(false);
         	
         	txtNombre2 = new JTextField();
@@ -367,20 +380,20 @@ public class GUI {
         	
         	btnRegistrarse2 = new JButton("Registrarse");
         	btnRegistrarse2.setFont(new Font("Kristen ITC", Font.PLAIN, 20));
-        	btnRegistrarse2.setBounds(284, 241, 285, 37);
+        	btnRegistrarse2.setBounds(284, 252, 285, 37);
         	btnRegistrarse2.setVisible(false);
         	btnRegistrarse2.addActionListener(new menuListener());
         	
         	txtContrasea = new JTextField();
         	txtContrasea.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 15));
-        	txtContrasea.setBounds(364, 190, 161, 22);
+        	txtContrasea.setBounds(364, 198, 161, 22);
         	txtContrasea.setColumns(10);
         	Registro.add(txtContrasea);
         	Registro.add(btnRegistrarse2);
         	
         	btnRegresar = new JButton("Regresar");
         	btnRegresar.setFont(new Font("Kristen ITC", Font.PLAIN, 16));
-        	btnRegresar.setBounds(319, 289, 234, 25);
+        	btnRegresar.setBounds(308, 307, 234, 25);
         	btnRegresar.addActionListener(new menuListener());
         	btnRegresar.setVisible(false);
         	Registro.add(btnRegresar);
