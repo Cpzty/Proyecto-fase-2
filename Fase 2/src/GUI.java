@@ -171,7 +171,7 @@ public class GUI {
         	btnBuscarEmpresa.addActionListener(new actionlistener());
         	
         	lblMapa = new JLabel("");
-        	lblMapa.setBounds(363, 334, 347, 186);
+        	lblMapa.setBounds(405, 274, 347, 186);
         	lblMapa.setForeground(new Color(0, 128, 0));
         	lblMapa.setVisible(false);
         	
