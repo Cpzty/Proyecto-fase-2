@@ -318,7 +318,7 @@ public class GUI {
         	Reciclar.add(lblDineroRecibido);
         	
         	JLabel lblNewLabel = new JLabel("New label");
-        	lblNewLabel.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Universidad Del Valle de Guatemala\\Primer A\u00F1o\\Segundo Semestre\\Imagenes_Progra\\reciclando.jpg"));
+        	lblNewLabel.setIcon(new ImageIcon("fondo1"));
         	lblNewLabel.setBounds(-10, 341, 848, 273);
         	Reciclar.add(lblNewLabel);
         	
@@ -328,16 +328,18 @@ public class GUI {
     		 */
         	
         	Registro = new JPanel();
+        	Registro.setBackground(SystemColor.textHighlightText);
         	Registro.setBorder(null);
         	frmMenuPrincipal.getContentPane().add(Registro, "name_411968859242604");
         	Registro.setVisible(false);
         	
         	lblNombre2 = new JLabel("Usuario");
-        	lblNombre2.setBounds(367, 104, 43, 16);
+        	lblNombre2.setFont(new Font("Sylfaen", Font.PLAIN, 20));
+        	lblNombre2.setBounds(293, 148, 88, 16);
         	lblNombre2.setVisible(false);
         	
         	lblRegistro = new JLabel("Registro");
-        	lblRegistro.setBounds(278, 0, 258, 96);
+        	lblRegistro.setBounds(318, 0, 258, 96);
         	lblRegistro.setVisible(false);
         	Registro.setLayout(null);
         	Registro.add(lblRegistro);
@@ -345,28 +347,33 @@ public class GUI {
         	Registro.add(lblNombre2);
         	
         	lblContrasena2 = new JLabel("Contrase\u00F1a");
-        	lblContrasena2.setBounds(345, 131, 65, 16);
+        	lblContrasena2.setFont(new Font("Sylfaen", Font.PLAIN, 20));
+        	lblContrasena2.setBounds(272, 175, 109, 16);
         	lblContrasena2.setVisible(false);
         	
         	txtNombre2 = new JTextField();
-        	txtNombre2.setBounds(415, 101, 116, 22);
+        	txtNombre2.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 15));
+        	txtNombre2.setBounds(386, 145, 161, 22);
         	txtNombre2.setColumns(10);
         	Registro.add(txtNombre2);
         	Registro.add(lblContrasena2);
         	
         	btnRegistrarse2 = new JButton("Registrarse");
-        	btnRegistrarse2.setBounds(0, 215, 410, 25);
+        	btnRegistrarse2.setFont(new Font("Kristen ITC", Font.PLAIN, 20));
+        	btnRegistrarse2.setBounds(306, 223, 285, 37);
         	btnRegistrarse2.setVisible(false);
         	btnRegistrarse2.addActionListener(new menuListener());
         	
         	txtContrasea = new JTextField();
-        	txtContrasea.setBounds(415, 128, 116, 22);
+        	txtContrasea.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 15));
+        	txtContrasea.setBounds(386, 172, 161, 22);
         	txtContrasea.setColumns(10);
         	Registro.add(txtContrasea);
         	Registro.add(btnRegistrarse2);
         	
         	btnRegresar = new JButton("Regresar");
-        	btnRegresar.setBounds(415, 215, 404, 25);
+        	btnRegresar.setFont(new Font("Kristen ITC", Font.PLAIN, 16));
+        	btnRegresar.setBounds(341, 271, 234, 25);
         	btnRegresar.addActionListener(new menuListener());
         	btnRegresar.setVisible(false);
         	Registro.add(btnRegresar);
