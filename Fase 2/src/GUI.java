@@ -340,7 +340,7 @@ public class GUI {
         	lblNombre2.setVisible(false);
         	
         	lblRegistro = new JLabel("Registro");
-        	lblRegistro.setBounds(318, 0, 258, 96);
+        	lblRegistro.setBounds(293, 0, 265, 96);
         	lblRegistro.setVisible(false);
         	Registro.setLayout(null);
         	Registro.add(lblRegistro);
@@ -379,9 +379,9 @@ public class GUI {
         	btnRegresar.setVisible(false);
         	Registro.add(btnRegresar);
         	
-        	lblNewLabel_2 = new JLabel("New label");
+        	lblNewLabel_2 = new JLabel("");
         	lblNewLabel_2.setIcon(new ImageIcon("logo"));
-        	lblNewLabel_2.setBounds(-24, -4, 836, 579);
+        	lblNewLabel_2.setBounds(-130, 0, 836, 579);
         	Registro.add(lblNewLabel_2);
         	
         	/**
