@@ -21,18 +21,18 @@ public class Conector {
          Statement stmt = null; //Se crea un objeto de tipo statement, que se usara para enviarle la orden a la base de datos
          try {
 			Class.forName("org.postgresql.Driver"); //Driver de postgresql a utilizar
-			c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ReciGuate", "postgres", "root"); //Se hace la conexión con el objeto c (instancia de "Connection") y la base de datos
+			c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ReciGuate", "postgres", "root"); //Se hace la conexión con el objeto c (instancia de "Connection") y la base de datos aqui se incluye el nombre de la base de datos, el nombre del usuario y la contraseña 
 			c.setAutoCommit(false); //Se le quita el estado de AutoCommit a la conexión, para que se hagan todas las acciones nesesarias, y luego se envién todas juntas a la base de datos
 			//System.out.println("Opened database successfully");
 			
 			stmt = c.createStatement(); //Se instancia el statement que se enviará a la base de datos
-			ResultSet rs = stmt.executeQuery( "SELECT * FROM USUARIOS;" ); //Se crea un Resultset que funciona como una tabla con los datos de la base de datos USUARIOS
+			ResultSet rs = stmt.executeQuery( "SELECT * FROM USUARIOS;" ); //Se crea un Resultset que "TOMA" los datos que se encuentran en la base de datos en la tabla  USUARIOS
 			int contador = 0; //Contador que se utilizara para encontrar el tamaño de la base de datos
-			while ( rs.next() ) { //Loop que le suma uno al contador cada vez que pasa por una fila de la tabla
+			while ( rs.next() ) { //ciclo (while) que le suma uno al contador cada vez que pasa por una fila de la tabla
 				contador++;
 			}
 			contador = contador+1; //Se le suma uno al tamanio final de la tabla para ser usado como un nuevo ID
-			String sql = "INSERT INTO USUARIOS (ID,NAME,PASSWORD) " + "VALUES ("+contador+", '"+nombre+"', '"+contrasenia+"');"; //Se crea un String con la orden de Ingreso de datos
+			String sql = "INSERT INTO USUARIOS (ID,NAME,PASSWORD) " + "VALUES ("+contador+", '"+nombre+"', '"+contrasenia+"');"; //Se crea un String con la notacion especial de base de datos este debe de ir  con el  orden de Ingreso de datos (de la tabla)
 			
 			stmt.executeUpdate(sql); //Se envia la orden de ingreso a la base de datos
 			
@@ -63,7 +63,7 @@ public class Conector {
  			//System.out.println("Opened database successfully");
 
  			stmt = c.createStatement(); //Se instancia el statement que se enviará a la base de datos
-			ResultSet rs = stmt.executeQuery( "SELECT * FROM USUARIOS;" ); //Se crea un Resultset que funciona como una tabla con los datos de la base de datos USUARIOS
+			ResultSet rs = stmt.executeQuery( "SELECT * FROM USUARIOS;" ); //Se crea un Resultset que extrae todos los datos de la base de datos USUARIOS
            while ( rs.next() ) { //Loop que recorre toda la tabla ResultSet de datos
               String  name = rs.getString("name");
               String pass = rs.getString("password");
