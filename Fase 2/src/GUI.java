@@ -216,18 +216,18 @@ public class GUI {
         	
         	JPanel Reciclar = new JPanel();
         	tabbedPane.addTab("Reciclar", null, Reciclar, null);
-        	Reciclar.setBackground(new Color(204, 255, 153));
+        	Reciclar.setBackground(new Color(255, 255, 255));
         	Reciclar.setLayout(null);
         	
         	JLabel lblSeleccioneElMaterial = new JLabel("Seleccione el material:");
         	lblSeleccioneElMaterial.setFont(new Font("Sylfaen", Font.PLAIN, 19));
-        	lblSeleccioneElMaterial.setBounds(11, 40, 264, 16);
+        	lblSeleccioneElMaterial.setBounds(11, 25, 264, 31);
         	lblSeleccioneElMaterial.setForeground(new Color(0, 51, 51));
         	Reciclar.add(lblSeleccioneElMaterial);
         	
         	lblCalcularDineroAhorrado = new JLabel("Calcular cantidad reciclada:");
         	lblCalcularDineroAhorrado.setFont(new Font("Sylfaen", Font.PLAIN, 19));
-        	lblCalcularDineroAhorrado.setBounds(302, 25, 244, 16);
+        	lblCalcularDineroAhorrado.setBounds(302, 25, 244, 31);
         	lblCalcularDineroAhorrado.setForeground(new Color(0, 51, 51));
         	Reciclar.add(lblCalcularDineroAhorrado);
         	
@@ -247,25 +247,25 @@ public class GUI {
         	
         	JLabel lblIngreseLaCantidad = new JLabel("Ingrese la cantidad: ");
         	lblIngreseLaCantidad.setFont(new Font("Sylfaen", Font.PLAIN, 19));
-        	lblIngreseLaCantidad.setBounds(11, 103, 220, 16);
+        	lblIngreseLaCantidad.setBounds(11, 103, 220, 31);
         	lblIngreseLaCantidad.setForeground(new Color(0, 51, 51));
         	Reciclar.add(lblIngreseLaCantidad);
         	
         	lblResultado = new JLabel("Resultado:");
         	lblResultado.setFont(new Font("Sylfaen", Font.PLAIN, 19));
-        	lblResultado.setBounds(326, 123, 352, 16);
+        	lblResultado.setBounds(326, 123, 352, 29);
         	lblResultado.setForeground(new Color(0, 51, 51));
         	Reciclar.add(lblResultado);
         	
         	txtCantidad = new JTextField();
         	txtCantidad.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 18));
-        	txtCantidad.setBounds(11, 130, 191, 22);
+        	txtCantidad.setBounds(11, 143, 191, 22);
         	Reciclar.add(txtCantidad);
         	txtCantidad.setColumns(10);
         	
         	JLabel lblSeleccioneLaDimensional = new JLabel("Seleccione la dimensional:");
         	lblSeleccioneLaDimensional.setFont(new Font("Sylfaen", Font.PLAIN, 19));
-        	lblSeleccioneLaDimensional.setBounds(10, 176, 220, 16);
+        	lblSeleccioneLaDimensional.setBounds(11, 176, 220, 32);
         	lblSeleccioneLaDimensional.setForeground(new Color(0, 51, 51));
         	Reciclar.add(lblSeleccioneLaDimensional);
         	
@@ -278,18 +278,19 @@ public class GUI {
         	lblDineroAhorrado = new JLabel("Dinero ahorrado:");
         	lblDineroAhorrado.setFont(new Font("Sylfaen", Font.PLAIN, 19));
         	lblDineroAhorrado.setForeground(new Color(0, 51, 51));
-        	lblDineroAhorrado.setBounds(326, 170, 352, 16);
+        	lblDineroAhorrado.setBounds(326, 170, 352, 22);
         	Reciclar.add(lblDineroAhorrado);
         	
         	lblDineroRecibido = new JLabel("Cantidad de dinero que recibir\u00E1:");
         	lblDineroRecibido.setFont(new Font("Sylfaen", Font.PLAIN, 19));
         	lblDineroRecibido.setForeground(new Color(0, 51, 51));
-        	lblDineroRecibido.setBounds(326, 225, 366, 16);
+        	lblDineroRecibido.setBounds(326, 225, 366, 26);
         	Reciclar.add(lblDineroRecibido);
         	
         	JLabel lblNewLabel = new JLabel("");
-        	lblNewLabel.setIcon(new ImageIcon("reciclando.jpg"));
-        	lblNewLabel.setBounds(-10, 341, 848, 273);
+        	lblNewLabel.setBackground(new Color(255, 255, 255));
+        	lblNewLabel.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Programas en JAVA (UVG)\\fase 2\\Proyecto-fase-2\\fondo.png"));
+        	lblNewLabel.setBounds(-365, 11, 1300, 673);
         	Reciclar.add(lblNewLabel);
         	
         	JPanel VerRecicladoras = new JPanel();
