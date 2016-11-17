@@ -10,7 +10,6 @@
  *
  */
 public class CiudadVerde {
-	Recicladora globoplast = new Recicladora();
 	Recicladora vical = new Recicladora();
 	Recicladora diso = new Recicladora();
 	Recicladora recipa = new Recicladora();
@@ -27,10 +26,21 @@ public class CiudadVerde {
 	Recicladora sanjose = new Recicladora();
 	Recicladora biogeneraciones = new Recicladora();
 	Recicladora comercartonpapel = new Recicladora();
+	Recicladora amigosNaturaleza = new Recicladora();
+	Recicladora globoplast = new Recicladora();
+	Recicladora villaNueva = new Recicladora();
+	Recicladora reciOccidnete = new Recicladora();
+	Recicladora centroReciclaje = new Recicladora();
+	Recicladora antigua = new Recicladora();
+	Recicladora lasTresMarias = new Recicladora();
+	Recicladora btb = new Recicladora();
 	
 	Recicladora[] ciudad = {globoplast,vical,diso,recipa,clapsa,
 						redecologica,interfisa,reciclemos,lajoya,abempaques,sidegua,
 						ingrup,selmet,exprore,sanjose,biogeneraciones,comercartonpapel};
+	
+	Recicladora[] exterior = {amigosNaturaleza, globoplast, villaNueva, reciOccidnete,
+						centroReciclaje, centroReciclaje, antigua, lasTresMarias, btb};
 	
 	//Array bidimensional siendo la primera dimension la posicion del segundo array segun la zona,
 	//y el segundo array contiene int con las zonas mas cercanas para reciclar, en este orde:
@@ -45,14 +55,6 @@ public class CiudadVerde {
 	 * Constructor		
 	 */
 	public CiudadVerde(){
-		
-		globoplast.setId(1);
-		globoplast.setNombre("Globoplast");
-		globoplast.setDireccion("4 ave. 4-21 zona 8, Mixco, Ciudad San Cristobal");
-		globoplast.setTelefono("2244-0500");
-		globoplast.setPagina("www.paisa.com.gt");
-		globoplast.setPlastico(true); 
-		globoplast.setZona(0);
 		
 		vical.setId(2);
 		vical.setNombre("Vical");
@@ -226,6 +228,127 @@ public class CiudadVerde {
 		comercartonpapel.setVidrio(false);
 		comercartonpapel.setZona(11);
 		
+		//Todas las recicladoras con Ids mayores a 18 son de recicladoras fuera de la ciudad.
+		
+		//Mixco
+		amigosNaturaleza.setId(18);
+		amigosNaturaleza.setNombre("Amigos De La Naturaleza");
+		amigosNaturaleza.setDireccion("9 calle 13-82, zona 8 de Mixco");
+		amigosNaturaleza.setTelefono("2476-9884");
+		amigosNaturaleza.setPagina("http://www.amigosdelanaturaleza.net");
+		amigosNaturaleza.setPapel(true);
+		amigosNaturaleza.setZona(100);
+		
+		globoplast.setId(19);
+		globoplast.setNombre("Globoplast");
+		globoplast.setDireccion("4 ave. 4-21 zona 8, Mixco, Ciudad San Cristobal");
+		globoplast.setTelefono("2244-0500");
+		globoplast.setPagina("www.paisa.com.gt");
+		globoplast.setPlastico(true); 
+		globoplast.setMetal(true);
+		globoplast.setVidrio(true);
+		globoplast.setZona(100);
+		
+		//Villa Nueva
+		villaNueva.setId(20);
+		villaNueva.setNombre("ComPlast Manufacturing");
+		villaNueva.setDireccion("Km 21 Antigua Carretera a Guatemala");
+		villaNueva.setTelefono("6644-2400");
+		villaNueva.setPagina("N/A");
+		villaNueva.setPlastico(true);
+		villaNueva.setMetal(true);
+		villaNueva.setPapel(true);
+		villaNueva.setVidrio(true);
+		villaNueva.setZona(101);
+		
+		//Xela
+		reciOccidnete.setId(21);
+		reciOccidnete.setNombre("Reciclados De Occidente (Xela)");
+		reciOccidnete.setDireccion("7a. avenida 15-40 zona 5, Las Rosas, Quetzaltenango");
+		reciOccidnete.setTelefono("5317-8901");
+		reciOccidnete.setPagina("N/A");
+		reciOccidnete.setPlastico(true);
+		reciOccidnete.setMetal(true);
+		reciOccidnete.setPapel(true);
+		reciOccidnete.setVidrio(true);
+		reciOccidnete.setZona(102);
+		
+		//Carretera Paramericana
+		centroReciclaje.setId(22);
+		centroReciclaje.setNombre("Centro de Reciclaje");
+		centroReciclaje.setDireccion("km. 224.2 Carretera Panamericana, Canton Chichiguitan zona 5, Quetzaltenango");
+		centroReciclaje.setTelefono("5317-8901");
+		centroReciclaje.setPagina("N/A");
+		centroReciclaje.setPlastico(true);
+		centroReciclaje.setMetal(true);
+		centroReciclaje.setPapel(true);
+		centroReciclaje.setVidrio(true);
+		centroReciclaje.setZona(103);
+		
+		//Antigua
+		antigua.setId(23);
+		antigua.setNombre("Guatemala Verde");
+		antigua.setDireccion("El servicio es adomicilio, (Solo para Antigua Guatemala)");
+		antigua.setPagina("recycle@viaventure.org");
+		antigua.setTelefono("5104-8447 o 5778-4009");
+		antigua.setPlastico(true);
+		antigua.setMetal(true);
+		antigua.setPapel(true);
+		antigua.setVidrio(true);
+		antigua.setZona(104);
+		
+		//Villa Hermosa
+		lasTresMarias.setId(24);
+		lasTresMarias.setNombre("Recicladora Las Tres Marias");
+		lasTresMarias.setDireccion("km. 14.5 Carretera a Villa Nueva");
+		lasTresMarias.setTelefono("5719-5995");
+		lasTresMarias.setPagina("recicladoralastresmarias.com");
+		lasTresMarias.setPlastico(true);
+		lasTresMarias.setMetal(true);
+		lasTresMarias.setPapel(true);
+		lasTresMarias.setVidrio(true);
+		lasTresMarias.setZona(105);
+		
+		//Santa Rosa
+		btb.setId(25);
+		btb.setNombre("Botella Botella");
+		btb.setDireccion("km. 44.5 Carretera a Pueblo Nuevo Vinas, Santa Rosa");
+		btb.setTelefono("5719-5995");
+		btb.setPagina("N/A");
+		btb.setPlastico(true);
+		btb.setPapel(true);
+		btb.setMetal(true);
+		btb.setVidrio(true);
+		btb.setZona(106);
+	}
+	
+	/**
+	 * Metodo para buscar recicladoras fuera de la ciudad segun la zona ingresada.
+	 * @param material1 String con el material que de reciclaje.
+	 * @param zona int devuelta segun el lugar fuera de la ciudad que se encuentre el usuario (esta zonas no son las mismas que la ciudad)
+	 * @param regresar String especificando el dato que se quiere que se retorne una cadena con su informacion. 
+	 * @return cadena con la informacion del dato especificado en la variable regresar de la recicladora mas cercana a la ubicacion del usuario.
+	 */
+	public String buscarFueraCiudad(String material1, int zona, String regresar){
+		String cadena = "Revisar datos";
+		material1.toLowerCase();
+		
+		if (zona == 100){
+			if (material1.equals("papel")){
+				cadena = amigosNaturaleza.toString(regresar);
+			}
+			else{
+				cadena = globoplast.toString(regresar);
+			}
+		}
+		else{
+			for (int i = 0; i < exterior.length; i++){
+				if (exterior[i].getZona() == zona){
+					exterior[i].toString(regresar);
+				}
+			}
+		}
+		return cadena;
 	}
 	
 	/**
