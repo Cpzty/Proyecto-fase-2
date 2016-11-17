@@ -119,7 +119,6 @@ public class GUI {
 	private void initialize() {
 			
 			guate= new CiudadVerde();
-			
 			frame = new JFrame();
 			frame.getContentPane().setBackground(new Color(255, 255, 255));
 			frame.setBounds(100, 100, 585, 522);
