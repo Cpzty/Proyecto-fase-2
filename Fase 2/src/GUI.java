@@ -795,7 +795,7 @@ public class GUI {
 			}else if (event.getSource().equals(btnRegistrarse2)){
 				String nombre = txtNombre2.getText();
 				String contrasenia = txtContrasea.getText();
-				String sql = "INSERT INTO USUARIOS (ID,NAME,PASSWORD) "
+				String sql = "INSERT INTO USUARIOS (ID,NOMBRE,PASSWORD) "
 			               + "VALUES (2,'"+nombre+"', '"+contrasenia+"');";
 				
 				connection.agregar(sql);
