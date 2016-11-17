@@ -130,13 +130,13 @@ public class GUI {
         	Buscar.setForeground(new Color(0, 0, 0));
         	
         	lblMaterial = new JLabel("Material:");
-        	lblMaterial.setBounds(25, 4, 114, 33);
-        	lblMaterial.setFont(new Font("Sylfaen", Font.PLAIN, 30));
+        	lblMaterial.setBounds(25, 4, 215, 33);
+        	lblMaterial.setFont(new Font("Sylfaen", Font.BOLD, 30));
         	
         	lblNombre = new JLabel("Nombre");
         	lblNombre.setBounds(334, 17, 328, 33);
         	lblNombre.setForeground(new Color(0, 0, 51));
-        	lblNombre.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
+        	lblNombre.setFont(new Font("Lucida Bright", Font.BOLD, 21));
         	
         	CBMaterial = new JComboBox<String>();
         	CBMaterial.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 18));
@@ -146,18 +146,18 @@ public class GUI {
         	lblDireccion = new JLabel("Direccion");
         	lblDireccion.setBounds(333, 61, 328, 24);
         	lblDireccion.setForeground(new Color(0, 0, 51));
-        	lblDireccion.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
+        	lblDireccion.setFont(new Font("Lucida Bright", Font.BOLD, 21));
         	
         	lblZona = new JLabel("Zona: ");
-        	lblZona.setBounds(40, 154, 80, 40);
+        	lblZona.setBounds(40, 154, 200, 40);
         	lblZona.setForeground(new Color(0, 51, 0));
         	lblZona.setBackground(new Color(51, 204, 51));
-        	lblZona.setFont(new Font("Sylfaen", Font.PLAIN, 30));
+        	lblZona.setFont(new Font("Sylfaen", Font.BOLD, 30));
         	
         	lblTelefono = new JLabel("Telefono");
         	lblTelefono.setBounds(336, 100, 328, 24);
         	lblTelefono.setForeground(new Color(0, 0, 51));
-        	lblTelefono.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
+        	lblTelefono.setFont(new Font("Lucida Bright", Font.BOLD, 21));
         	
         	CBZona = new JComboBox<Integer>();
         	CBZona.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 18));
@@ -167,7 +167,7 @@ public class GUI {
         	lblPagina = new JLabel("Pagina Web");
         	lblPagina.setBounds(337, 141, 328, 24);
         	lblPagina.setForeground(new Color(0, 0, 51));
-        	lblPagina.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
+        	lblPagina.setFont(new Font("Lucida Bright", Font.BOLD, 21));
         	
         	btnBuscarEmpresa = new JButton("Buscar empresa");
         	btnBuscarEmpresa.setFont(new Font("Kristen ITC", Font.PLAIN, 24));
@@ -181,7 +181,8 @@ public class GUI {
         	lblMapa.setVisible(false);
         	
         	lblDatoCurioso = new JLabel("Dato curioso:");
-        	lblDatoCurioso.setBounds(0, 471, 562, 16);
+        	lblDatoCurioso.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 14));
+        	lblDatoCurioso.setBounds(0, 471, 562, 33);
         	lblDatoCurioso.setForeground(new Color(0, 204, 51));
         	
         	comboBoxMunicipio = new JComboBox<Object>();
@@ -204,13 +205,13 @@ public class GUI {
         	
         	lblMunicipio = new JLabel("Area");
         	lblMunicipio.setForeground(new Color(0, 51, 0));
-        	lblMunicipio.setFont(new Font("Sylfaen", Font.PLAIN, 30));
+        	lblMunicipio.setFont(new Font("Sylfaen", Font.BOLD, 30));
         	lblMunicipio.setBackground(new Color(51, 204, 51));
-        	lblMunicipio.setBounds(36, 79, 146, 40);
+        	lblMunicipio.setBounds(36, 79, 204, 40);
         	Buscar.add(lblMunicipio);
         	
         	lblNewLabel_3 = new JLabel("New label");
-        	lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Programas en JAVA (UVG)\\fase 2\\Proyecto-fase-2\\fondo.png"));
+        	lblNewLabel_3.setIcon(new ImageIcon("fondo.png"));
         	lblNewLabel_3.setBounds(-206, -56, 1023, 594);
         	Buscar.add(lblNewLabel_3);
         	
@@ -289,7 +290,7 @@ public class GUI {
         	
         	JLabel lblNewLabel = new JLabel("");
         	lblNewLabel.setBackground(new Color(255, 255, 255));
-        	lblNewLabel.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Programas en JAVA (UVG)\\fase 2\\Proyecto-fase-2\\fondo.png"));
+        	lblNewLabel.setIcon(new ImageIcon("fondo.png"));
         	lblNewLabel.setBounds(-365, 11, 1300, 673);
         	Reciclar.add(lblNewLabel);
         	
@@ -315,32 +316,32 @@ public class GUI {
         	btnVerInformacion.addActionListener(new actionlistener());
         	
         	lblInfoNombre = new JLabel("Nombre");
-        	lblInfoNombre.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 18));
+        	lblInfoNombre.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 18));
         	lblInfoNombre.setBounds(53, 174, 547, 30);
-        	lblInfoNombre.setForeground(new Color(0, 102, 0));
+        	lblInfoNombre.setForeground(new Color(0, 0, 51));
         	VerRecicladoras.add(lblInfoNombre);
         	
         	lblInfoDireccion = new JLabel("Direccion");
-        	lblInfoDireccion.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 18));
+        	lblInfoDireccion.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 18));
         	lblInfoDireccion.setBounds(51, 215, 547, 25);
-        	lblInfoDireccion.setForeground(new Color(0, 102, 0));
+        	lblInfoDireccion.setForeground(new Color(0, 0, 51));
         	VerRecicladoras.add(lblInfoDireccion);
         	
         	lblInfoTel = new JLabel("Telefono");
-        	lblInfoTel.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 18));
+        	lblInfoTel.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 18));
         	lblInfoTel.setBounds(53, 257, 547, 31);
-        	lblInfoTel.setForeground(new Color(0, 102, 0));
+        	lblInfoTel.setForeground(new Color(0, 0, 51));
         	VerRecicladoras.add(lblInfoTel);
         	
         	lblInfoWeb = new JLabel("Pagina Web");
-        	lblInfoWeb.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 18));
+        	lblInfoWeb.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 18));
         	lblInfoWeb.setBounds(51, 310, 547, 31);
-        	lblInfoWeb.setForeground(new Color(0, 102, 0));
+        	lblInfoWeb.setForeground(new Color(0, 0, 51));
         	VerRecicladoras.add(lblInfoWeb);
         	
         	lblNewLabel_4 = new JLabel("New label");
-        	lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Programas en JAVA (UVG)\\fase 2\\Proyecto-fase-2\\logo.png"));
-        	lblNewLabel_4.setBounds(80, 8, 691, 578);
+        	lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Programas en JAVA (UVG)\\fase 2\\Proyecto-fase-2\\fondo.png"));
+        	lblNewLabel_4.setBounds(-277, 0, 1094, 578);
         	VerRecicladoras.add(lblNewLabel_4);
         	
         	/**
