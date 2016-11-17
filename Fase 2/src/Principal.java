@@ -108,6 +108,7 @@ public class Principal {
 	 * Create the application.
 	 */
 	Connection conector = null;
+	private JLabel lblMunicipio;
 	public Principal() {
 		initialize();
 		conector = Conector.ConnectDB();
@@ -125,7 +126,7 @@ public class Principal {
 			
 			frame = new JFrame();
 			frame.getContentPane().setBackground(new Color(255, 255, 255));
-			frame.setBounds(100, 100, 709, 618);
+			frame.setBounds(100, 100, 838, 618);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         	
         	tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -140,106 +141,83 @@ public class Principal {
         	Buscar.setForeground(new Color(0, 0, 0));
         	
         	lblMaterial = new JLabel("Material:");
-        	lblMaterial.setFont(new Font("Poor Richard", Font.PLAIN, 30));
+        	lblMaterial.setBounds(25, 4, 114, 33);
+        	lblMaterial.setFont(new Font("Sylfaen", Font.PLAIN, 30));
         	
         	lblNombre = new JLabel("Nombre");
+        	lblNombre.setBounds(334, 17, 328, 33);
         	lblNombre.setForeground(new Color(0, 102, 0));
-        	lblNombre.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20));
+        	lblNombre.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
         	
         	CBMaterial = new JComboBox<String>();
+        	CBMaterial.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 18));
+        	CBMaterial.setBounds(70, 39, 236, 35);
         	CBMaterial.setBackground(new Color(255, 255, 255));
         	
         	lblDireccion = new JLabel("Direccion");
+        	lblDireccion.setBounds(333, 61, 328, 24);
         	lblDireccion.setForeground(new Color(0, 102, 0));
-        	lblDireccion.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20));
+        	lblDireccion.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
         	
         	lblZona = new JLabel("Zona: ");
+        	lblZona.setBounds(40, 154, 80, 40);
         	lblZona.setForeground(new Color(0, 102, 0));
         	lblZona.setBackground(new Color(51, 204, 51));
-        	lblZona.setFont(new Font("Poor Richard", Font.PLAIN, 30));
+        	lblZona.setFont(new Font("Sylfaen", Font.PLAIN, 30));
         	
         	lblTelefono = new JLabel("Telefono");
+        	lblTelefono.setBounds(336, 100, 328, 24);
         	lblTelefono.setForeground(new Color(0, 102, 0));
-        	lblTelefono.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20));
+        	lblTelefono.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
         	
         	CBZona = new JComboBox<Integer>();
+        	CBZona.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 18));
+        	CBZona.setBounds(68, 124, 238, 35);
         	CBZona.setBackground(new Color(255, 255, 255));
         	
         	lblPagina = new JLabel("Pagina Web");
+        	lblPagina.setBounds(337, 141, 328, 24);
         	lblPagina.setForeground(new Color(0, 102, 0));
-        	lblPagina.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20));
+        	lblPagina.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
         	
         	btnBuscarEmpresa = new JButton("Buscar empresa");
+        	btnBuscarEmpresa.setFont(new Font("Kristen ITC", Font.PLAIN, 24));
+        	btnBuscarEmpresa.setBounds(26, 250, 309, 46);
         	btnBuscarEmpresa.setBackground(new Color(255, 255, 255));
         	btnBuscarEmpresa.addActionListener(new actionlistener());
         	
         	lblMapa = new JLabel("");
+        	lblMapa.setBounds(363, 334, 347, 186);
         	lblMapa.setForeground(new Color(0, 128, 0));
         	lblMapa.setVisible(false);
         	
         	lblDatoCurioso = new JLabel("Dato curioso:");
+        	lblDatoCurioso.setBounds(0, 471, 562, 16);
         	lblDatoCurioso.setForeground(new Color(51, 204, 102));
         	
         	JComboBox comboBox = new JComboBox();
-        	GroupLayout gl_Buscar = new GroupLayout(Buscar);
-        	gl_Buscar.setHorizontalGroup(
-        		gl_Buscar.createParallelGroup(Alignment.LEADING)
-        			.addGroup(gl_Buscar.createSequentialGroup()
-        				.addGroup(gl_Buscar.createParallelGroup(Alignment.LEADING, false)
-        					.addGroup(gl_Buscar.createSequentialGroup()
-        						.addComponent(lblMaterial)
-        						.addGap(135)
-        						.addComponent(lblNombre, GroupLayout.PREFERRED_SIZE, 328, GroupLayout.PREFERRED_SIZE))
-        					.addGroup(gl_Buscar.createSequentialGroup()
-        						.addComponent(CBMaterial, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
-        						.addGap(5)
-        						.addComponent(lblDireccion, GroupLayout.PREFERRED_SIZE, 328, GroupLayout.PREFERRED_SIZE))
-        					.addGroup(gl_Buscar.createSequentialGroup()
-        						.addGap(9)
-        						.addComponent(lblZona)
-        						.addGap(162)
-        						.addComponent(lblTelefono, GroupLayout.PREFERRED_SIZE, 328, GroupLayout.PREFERRED_SIZE))
-        					.addComponent(lblDatoCurioso, GroupLayout.PREFERRED_SIZE, 562, GroupLayout.PREFERRED_SIZE)
-        					.addGroup(gl_Buscar.createSequentialGroup()
-        						.addGap(104)
-        						.addComponent(lblMapa, GroupLayout.PREFERRED_SIZE, 347, GroupLayout.PREFERRED_SIZE))
-        					.addComponent(btnBuscarEmpresa, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE)
-        					.addGroup(gl_Buscar.createSequentialGroup()
-        						.addGroup(gl_Buscar.createParallelGroup(Alignment.TRAILING, false)
-        							.addComponent(CBZona, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)
-        							.addComponent(comboBox, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE))
-        						.addPreferredGap(ComponentPlacement.RELATED)
-        						.addComponent(lblPagina, GroupLayout.PREFERRED_SIZE, 328, GroupLayout.PREFERRED_SIZE)))
-        				.addGap(121))
-        	);
-        	gl_Buscar.setVerticalGroup(
-        		gl_Buscar.createParallelGroup(Alignment.LEADING)
-        			.addGroup(gl_Buscar.createSequentialGroup()
-        				.addGroup(gl_Buscar.createParallelGroup(Alignment.LEADING)
-        					.addComponent(lblMaterial, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-        					.addComponent(lblNombre, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-        				.addGap(5)
-        				.addGroup(gl_Buscar.createParallelGroup(Alignment.LEADING)
-        					.addComponent(CBMaterial, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-        					.addComponent(lblDireccion))
-        				.addGap(5)
-        				.addGroup(gl_Buscar.createParallelGroup(Alignment.LEADING)
-        					.addComponent(lblZona)
-        					.addComponent(lblTelefono))
-        				.addPreferredGap(ComponentPlacement.RELATED)
-        				.addGroup(gl_Buscar.createParallelGroup(Alignment.TRAILING)
-        					.addComponent(lblPagina)
-        					.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
-        				.addGap(13)
-        				.addComponent(CBZona, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-        				.addPreferredGap(ComponentPlacement.RELATED)
-        				.addComponent(btnBuscarEmpresa, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-        				.addPreferredGap(ComponentPlacement.RELATED)
-        				.addComponent(lblMapa, GroupLayout.PREFERRED_SIZE, 186, GroupLayout.PREFERRED_SIZE)
-        				.addPreferredGap(ComponentPlacement.RELATED)
-        				.addComponent(lblDatoCurioso))
-        	);
-        	Buscar.setLayout(gl_Buscar);
+        	comboBox.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 18));
+        	comboBox.setBounds(70, 193, 236, 38);
+        	Buscar.setLayout(null);
+        	Buscar.add(lblMaterial);
+        	Buscar.add(CBMaterial);
+        	Buscar.add(lblNombre);
+        	Buscar.add(lblDatoCurioso);
+        	Buscar.add(lblMapa);
+        	Buscar.add(btnBuscarEmpresa);
+        	Buscar.add(lblZona);
+        	Buscar.add(CBZona);
+        	Buscar.add(comboBox);
+        	Buscar.add(lblDireccion);
+        	Buscar.add(lblPagina);
+        	Buscar.add(lblTelefono);
+        	
+        	lblMunicipio = new JLabel("Municipio");
+        	lblMunicipio.setForeground(new Color(0, 102, 0));
+        	lblMunicipio.setFont(new Font("Sylfaen", Font.PLAIN, 30));
+        	lblMunicipio.setBackground(new Color(51, 204, 51));
+        	lblMunicipio.setBounds(36, 79, 146, 40);
+        	Buscar.add(lblMunicipio);
         	
         	JPanel Reciclar = new JPanel();
         	tabbedPane.addTab("Reciclar", null, Reciclar, null);
