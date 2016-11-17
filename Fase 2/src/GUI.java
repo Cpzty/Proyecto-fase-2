@@ -116,8 +116,9 @@ public class GUI {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	
 	private void initialize() {
-			
+		
 			guate= new CiudadVerde();
 			frame = new JFrame();
 			frame.getContentPane().setBackground(new Color(255, 255, 255));

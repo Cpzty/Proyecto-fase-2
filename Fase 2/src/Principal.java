@@ -43,6 +43,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JSeparator;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class Principal {
 
@@ -67,7 +69,6 @@ public class Principal {
     private ControladorConversiones c=new ControladorConversiones();
     private JLabel lblResultado;
     DecimalFormat decimales = new DecimalFormat("0.0000");
-    private JLabel lblReciguate;
     private JLabel lblZona;
     private JLabel lblMaterial, lblMapa;
     private JComboBox<String> comboBoxNombres;
@@ -120,21 +121,16 @@ public class Principal {
 	private void initialize() {
 			
 			guate= new CiudadVerde();
+			ImageIcon fondo = new ImageIcon("reciclaje.jpg");
 			
 			frame = new JFrame();
 			frame.getContentPane().setBackground(new Color(255, 255, 255));
-			frame.setBounds(100, 100, 585, 522);
+			frame.setBounds(100, 100, 709, 618);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         	
         	tabbedPane = new JTabbedPane(JTabbedPane.TOP);
         	tabbedPane.setVisible(false);
-        	
-        	lblReciguate = new JLabel("RECIGUATE");
-        	lblReciguate.setForeground(new Color(0, 204, 0));
-        	lblReciguate.setFont(new Font("Arial", Font.PLAIN, 16));
-        	lblReciguate.setVisible(false);
         	frame.getContentPane().setLayout(new CardLayout(0, 0));
-        	frame.getContentPane().add(lblReciguate, "name_411968808218137");
         	frame.getContentPane().add(tabbedPane, "name_411968820848809");
         	
         	
@@ -142,118 +138,108 @@ public class Principal {
         	tabbedPane.addTab("Buscar", null, Buscar, null);
         	Buscar.setBackground(new Color(204, 255, 153));
         	Buscar.setForeground(new Color(0, 0, 0));
-        	GridBagLayout gbl_Buscar = new GridBagLayout();
-        	gbl_Buscar.columnWidths = new int[]{211, 328, 0};
-        	gbl_Buscar.rowHeights = new int[]{16, 27, 21, 27, 29, 14, 214, 14, 0};
-        	gbl_Buscar.columnWeights = new double[]{1.0, 0.0, Double.MIN_VALUE};
-        	gbl_Buscar.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
-        	Buscar.setLayout(gbl_Buscar);
         	
         	lblMaterial = new JLabel("Material:");
-        	GridBagConstraints gbc_lblMaterial = new GridBagConstraints();
-        	gbc_lblMaterial.anchor = GridBagConstraints.NORTHWEST;
-        	gbc_lblMaterial.insets = new Insets(0, 0, 5, 5);
-        	gbc_lblMaterial.gridx = 0;
-        	gbc_lblMaterial.gridy = 0;
-        	Buscar.add(lblMaterial, gbc_lblMaterial);
+        	lblMaterial.setFont(new Font("Poor Richard", Font.PLAIN, 30));
         	
         	lblNombre = new JLabel("Nombre");
         	lblNombre.setForeground(new Color(0, 102, 0));
-        	GridBagConstraints gbc_lblNombre = new GridBagConstraints();
-        	gbc_lblNombre.anchor = GridBagConstraints.NORTH;
-        	gbc_lblNombre.fill = GridBagConstraints.HORIZONTAL;
-        	gbc_lblNombre.insets = new Insets(0, 0, 5, 0);
-        	gbc_lblNombre.gridx = 1;
-        	gbc_lblNombre.gridy = 0;
-        	Buscar.add(lblNombre, gbc_lblNombre);
+        	lblNombre.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20));
         	
         	CBMaterial = new JComboBox<String>();
         	CBMaterial.setBackground(new Color(255, 255, 255));
-        	GridBagConstraints gbc_CBMaterial = new GridBagConstraints();
-        	gbc_CBMaterial.fill = GridBagConstraints.BOTH;
-        	gbc_CBMaterial.insets = new Insets(0, 0, 5, 5);
-        	gbc_CBMaterial.gridx = 0;
-        	gbc_CBMaterial.gridy = 1;
-        	Buscar.add(CBMaterial, gbc_CBMaterial);
         	
         	lblDireccion = new JLabel("Direccion");
         	lblDireccion.setForeground(new Color(0, 102, 0));
-        	GridBagConstraints gbc_lblDireccion = new GridBagConstraints();
-        	gbc_lblDireccion.fill = GridBagConstraints.HORIZONTAL;
-        	gbc_lblDireccion.insets = new Insets(0, 0, 5, 0);
-        	gbc_lblDireccion.gridx = 1;
-        	gbc_lblDireccion.gridy = 1;
-        	Buscar.add(lblDireccion, gbc_lblDireccion);
+        	lblDireccion.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20));
         	
         	lblZona = new JLabel("Zona: ");
         	lblZona.setForeground(new Color(0, 102, 0));
         	lblZona.setBackground(new Color(51, 204, 51));
-        	GridBagConstraints gbc_lblZona = new GridBagConstraints();
-        	gbc_lblZona.anchor = GridBagConstraints.NORTHWEST;
-        	gbc_lblZona.insets = new Insets(0, 0, 5, 5);
-        	gbc_lblZona.gridx = 0;
-        	gbc_lblZona.gridy = 2;
-        	Buscar.add(lblZona, gbc_lblZona);
+        	lblZona.setFont(new Font("Poor Richard", Font.PLAIN, 30));
         	
         	lblTelefono = new JLabel("Telefono");
         	lblTelefono.setForeground(new Color(0, 102, 0));
-        	GridBagConstraints gbc_lblTelefono = new GridBagConstraints();
-        	gbc_lblTelefono.anchor = GridBagConstraints.SOUTH;
-        	gbc_lblTelefono.fill = GridBagConstraints.HORIZONTAL;
-        	gbc_lblTelefono.insets = new Insets(0, 0, 5, 0);
-        	gbc_lblTelefono.gridx = 1;
-        	gbc_lblTelefono.gridy = 2;
-        	Buscar.add(lblTelefono, gbc_lblTelefono);
+        	lblTelefono.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20));
         	
         	CBZona = new JComboBox<Integer>();
         	CBZona.setBackground(new Color(255, 255, 255));
-        	GridBagConstraints gbc_CBZona = new GridBagConstraints();
-        	gbc_CBZona.fill = GridBagConstraints.BOTH;
-        	gbc_CBZona.insets = new Insets(0, 0, 5, 5);
-        	gbc_CBZona.gridx = 0;
-        	gbc_CBZona.gridy = 3;
-        	Buscar.add(CBZona, gbc_CBZona);
         	
         	lblPagina = new JLabel("Pagina Web");
         	lblPagina.setForeground(new Color(0, 102, 0));
-        	GridBagConstraints gbc_lblPagina = new GridBagConstraints();
-        	gbc_lblPagina.fill = GridBagConstraints.HORIZONTAL;
-        	gbc_lblPagina.insets = new Insets(0, 0, 5, 0);
-        	gbc_lblPagina.gridx = 1;
-        	gbc_lblPagina.gridy = 3;
-        	Buscar.add(lblPagina, gbc_lblPagina);
+        	lblPagina.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20));
         	
         	btnBuscarEmpresa = new JButton("Buscar empresa");
         	btnBuscarEmpresa.setBackground(new Color(255, 255, 255));
-        	GridBagConstraints gbc_btnBuscarEmpresa = new GridBagConstraints();
-        	gbc_btnBuscarEmpresa.anchor = GridBagConstraints.WEST;
-        	gbc_btnBuscarEmpresa.fill = GridBagConstraints.VERTICAL;
-        	gbc_btnBuscarEmpresa.insets = new Insets(0, 0, 5, 5);
-        	gbc_btnBuscarEmpresa.gridx = 0;
-        	gbc_btnBuscarEmpresa.gridy = 4;
-        	Buscar.add(btnBuscarEmpresa, gbc_btnBuscarEmpresa);
         	btnBuscarEmpresa.addActionListener(new actionlistener());
         	
-        	lblMapa = new JLabel("Mapa:");
+        	lblMapa = new JLabel("");
         	lblMapa.setForeground(new Color(0, 128, 0));
-        	GridBagConstraints gbc_lblMapa = new GridBagConstraints();
-        	gbc_lblMapa.gridheight = 2;
-        	gbc_lblMapa.gridwidth = 2;
-        	gbc_lblMapa.fill = GridBagConstraints.BOTH;
-        	gbc_lblMapa.insets = new Insets(0, 0, 5, 5);
-        	gbc_lblMapa.gridx = 0;
-        	gbc_lblMapa.gridy = 5;
-        	Buscar.add(lblMapa, gbc_lblMapa);
         	lblMapa.setVisible(false);
         	
         	lblDatoCurioso = new JLabel("Dato curioso:");
-        	GridBagConstraints gbc_lblDatoCurioso = new GridBagConstraints();
-        	gbc_lblDatoCurioso.fill = GridBagConstraints.BOTH;
-        	gbc_lblDatoCurioso.gridwidth = 2;
-        	gbc_lblDatoCurioso.gridx = 0;
-        	gbc_lblDatoCurioso.gridy = 7;
-        	Buscar.add(lblDatoCurioso, gbc_lblDatoCurioso);
         	lblDatoCurioso.setForeground(new Color(51, 204, 102));
+        	
+        	JComboBox comboBox = new JComboBox();
+        	GroupLayout gl_Buscar = new GroupLayout(Buscar);
+        	gl_Buscar.setHorizontalGroup(
+        		gl_Buscar.createParallelGroup(Alignment.LEADING)
+        			.addGroup(gl_Buscar.createSequentialGroup()
+        				.addGroup(gl_Buscar.createParallelGroup(Alignment.LEADING, false)
+        					.addGroup(gl_Buscar.createSequentialGroup()
+        						.addComponent(lblMaterial)
+        						.addGap(135)
+        						.addComponent(lblNombre, GroupLayout.PREFERRED_SIZE, 328, GroupLayout.PREFERRED_SIZE))
+        					.addGroup(gl_Buscar.createSequentialGroup()
+        						.addComponent(CBMaterial, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
+        						.addGap(5)
+        						.addComponent(lblDireccion, GroupLayout.PREFERRED_SIZE, 328, GroupLayout.PREFERRED_SIZE))
+        					.addGroup(gl_Buscar.createSequentialGroup()
+        						.addGap(9)
+        						.addComponent(lblZona)
+        						.addGap(162)
+        						.addComponent(lblTelefono, GroupLayout.PREFERRED_SIZE, 328, GroupLayout.PREFERRED_SIZE))
+        					.addComponent(lblDatoCurioso, GroupLayout.PREFERRED_SIZE, 562, GroupLayout.PREFERRED_SIZE)
+        					.addGroup(gl_Buscar.createSequentialGroup()
+        						.addGap(104)
+        						.addComponent(lblMapa, GroupLayout.PREFERRED_SIZE, 347, GroupLayout.PREFERRED_SIZE))
+        					.addComponent(btnBuscarEmpresa, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE)
+        					.addGroup(gl_Buscar.createSequentialGroup()
+        						.addGroup(gl_Buscar.createParallelGroup(Alignment.TRAILING, false)
+        							.addComponent(CBZona, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)
+        							.addComponent(comboBox, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE))
+        						.addPreferredGap(ComponentPlacement.RELATED)
+        						.addComponent(lblPagina, GroupLayout.PREFERRED_SIZE, 328, GroupLayout.PREFERRED_SIZE)))
+        				.addGap(121))
+        	);
+        	gl_Buscar.setVerticalGroup(
+        		gl_Buscar.createParallelGroup(Alignment.LEADING)
+        			.addGroup(gl_Buscar.createSequentialGroup()
+        				.addGroup(gl_Buscar.createParallelGroup(Alignment.LEADING)
+        					.addComponent(lblMaterial, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+        					.addComponent(lblNombre, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
+        				.addGap(5)
+        				.addGroup(gl_Buscar.createParallelGroup(Alignment.LEADING)
+        					.addComponent(CBMaterial, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+        					.addComponent(lblDireccion))
+        				.addGap(5)
+        				.addGroup(gl_Buscar.createParallelGroup(Alignment.LEADING)
+        					.addComponent(lblZona)
+        					.addComponent(lblTelefono))
+        				.addPreferredGap(ComponentPlacement.RELATED)
+        				.addGroup(gl_Buscar.createParallelGroup(Alignment.TRAILING)
+        					.addComponent(lblPagina)
+        					.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+        				.addGap(13)
+        				.addComponent(CBZona, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+        				.addPreferredGap(ComponentPlacement.RELATED)
+        				.addComponent(btnBuscarEmpresa, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+        				.addPreferredGap(ComponentPlacement.RELATED)
+        				.addComponent(lblMapa, GroupLayout.PREFERRED_SIZE, 186, GroupLayout.PREFERRED_SIZE)
+        				.addPreferredGap(ComponentPlacement.RELATED)
+        				.addComponent(lblDatoCurioso))
+        	);
+        	Buscar.setLayout(gl_Buscar);
         	
         	JPanel Reciclar = new JPanel();
         	tabbedPane.addTab("Reciclar", null, Reciclar, null);
@@ -436,144 +422,166 @@ public class Principal {
         	Registro.setBorder(null);
         	frame.getContentPane().add(Registro, "name_411968859242604");
         	Registro.setVisible(false);
-        	
-        	lblRegistro = new JLabel("Registro");
-        	lblRegistro.setFont(new Font("Tahoma", Font.PLAIN, 40));
-        	lblRegistro.setVisible(false);
-        	
-        	btnRegresar = new JButton("Regresar");
-        	btnRegresar.addActionListener(new menuListener());
-        	btnRegresar.setVisible(false);
+        	GridBagLayout gbl_Registro = new GridBagLayout();
+        	gbl_Registro.columnWidths = new int[]{127, 0, 0};
+        	gbl_Registro.rowHeights = new int[]{49, 22, 22, 60, 25, 0};
+        	gbl_Registro.columnWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
+        	gbl_Registro.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+        	Registro.setLayout(gbl_Registro);
         	
         	lblNombre2 = new JLabel("Usuario");
         	lblNombre2.setVisible(false);
         	
-        	txtNombre2 = new JTextField();
-        	txtNombre2.setColumns(10);
-        	
-        	btnRegistrarse2 = new JButton("Registrarse");
-        	btnRegistrarse2.setVisible(false);
+        	lblRegistro = new JLabel("Registro");
+        	lblRegistro.setVisible(false);
+        	GridBagConstraints gbc_lblRegistro = new GridBagConstraints();
+        	gbc_lblRegistro.gridwidth = 2;
+        	gbc_lblRegistro.anchor = GridBagConstraints.NORTH;
+        	gbc_lblRegistro.insets = new Insets(0, 0, 5, 5);
+        	gbc_lblRegistro.gridx = 0;
+        	gbc_lblRegistro.gridy = 0;
+        	Registro.add(lblRegistro, gbc_lblRegistro);
+        	lblRegistro.setFont(new Font("Curlz MT", Font.BOLD, 72));
+        	GridBagConstraints gbc_lblNombre2 = new GridBagConstraints();
+        	gbc_lblNombre2.anchor = GridBagConstraints.EAST;
+        	gbc_lblNombre2.insets = new Insets(0, 0, 5, 5);
+        	gbc_lblNombre2.gridx = 0;
+        	gbc_lblNombre2.gridy = 1;
+        	Registro.add(lblNombre2, gbc_lblNombre2);
         	
         	lblContrasena2 = new JLabel("Contrase\u00F1a");
         	lblContrasena2.setVisible(false);
         	
+        	txtNombre2 = new JTextField();
+        	txtNombre2.setColumns(10);
+        	GridBagConstraints gbc_txtNombre2 = new GridBagConstraints();
+        	gbc_txtNombre2.anchor = GridBagConstraints.NORTHWEST;
+        	gbc_txtNombre2.insets = new Insets(0, 0, 5, 0);
+        	gbc_txtNombre2.gridx = 1;
+        	gbc_txtNombre2.gridy = 1;
+        	Registro.add(txtNombre2, gbc_txtNombre2);
+        	GridBagConstraints gbc_lblContrasena2 = new GridBagConstraints();
+        	gbc_lblContrasena2.anchor = GridBagConstraints.EAST;
+        	gbc_lblContrasena2.insets = new Insets(0, 0, 5, 5);
+        	gbc_lblContrasena2.gridx = 0;
+        	gbc_lblContrasena2.gridy = 2;
+        	Registro.add(lblContrasena2, gbc_lblContrasena2);
+        	
+        	btnRegistrarse2 = new JButton("Registrarse");
+        	btnRegistrarse2.setVisible(false);
+        	
         	txtContrasea = new JTextField();
         	txtContrasea.setColumns(10);
-        	GroupLayout gl_Registro = new GroupLayout(Registro);
-        	gl_Registro.setHorizontalGroup(
-        		gl_Registro.createParallelGroup(Alignment.LEADING)
-        			.addGroup(gl_Registro.createSequentialGroup()
-        				.addGap(132)
-        				.addComponent(lblRegistro))
-        			.addGroup(gl_Registro.createSequentialGroup()
-        				.addGap(84)
-        				.addComponent(lblNombre2)
-        				.addGap(35)
-        				.addComponent(txtNombre2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addGroup(gl_Registro.createSequentialGroup()
-        				.addGap(92)
-        				.addComponent(lblContrasena2)
-        				.addGap(5)
-        				.addComponent(txtContrasea, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addGroup(gl_Registro.createSequentialGroup()
-        				.addComponent(btnRegistrarse2, GroupLayout.PREFERRED_SIZE, 187, GroupLayout.PREFERRED_SIZE)
-        				.addGap(52)
-        				.addComponent(btnRegresar, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE))
-        	);
-        	gl_Registro.setVerticalGroup(
-        		gl_Registro.createParallelGroup(Alignment.LEADING)
-        			.addGroup(gl_Registro.createSequentialGroup()
-        				.addComponent(lblRegistro)
-        				.addGap(88)
-        				.addGroup(gl_Registro.createParallelGroup(Alignment.LEADING)
-        					.addGroup(gl_Registro.createSequentialGroup()
-        						.addGap(3)
-        						.addComponent(lblNombre2))
-        					.addComponent(txtNombre2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        				.addGap(5)
-        				.addGroup(gl_Registro.createParallelGroup(Alignment.LEADING)
-        					.addGroup(gl_Registro.createSequentialGroup()
-        						.addGap(3)
-        						.addComponent(lblContrasena2))
-        					.addComponent(txtContrasea, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        				.addGap(60)
-        				.addGroup(gl_Registro.createParallelGroup(Alignment.LEADING)
-        					.addComponent(btnRegistrarse2)
-        					.addComponent(btnRegresar)))
-        	);
-        	Registro.setLayout(gl_Registro);
+        	GridBagConstraints gbc_txtContrasea = new GridBagConstraints();
+        	gbc_txtContrasea.anchor = GridBagConstraints.NORTHWEST;
+        	gbc_txtContrasea.insets = new Insets(0, 0, 5, 0);
+        	gbc_txtContrasea.gridx = 1;
+        	gbc_txtContrasea.gridy = 2;
+        	Registro.add(txtContrasea, gbc_txtContrasea);
+        	GridBagConstraints gbc_btnRegistrarse2 = new GridBagConstraints();
+        	gbc_btnRegistrarse2.anchor = GridBagConstraints.NORTH;
+        	gbc_btnRegistrarse2.fill = GridBagConstraints.HORIZONTAL;
+        	gbc_btnRegistrarse2.insets = new Insets(0, 0, 0, 5);
+        	gbc_btnRegistrarse2.gridx = 0;
+        	gbc_btnRegistrarse2.gridy = 4;
+        	Registro.add(btnRegistrarse2, gbc_btnRegistrarse2);
+        	
+        	btnRegresar = new JButton("Regresar");
+        	btnRegresar.addActionListener(new menuListener());
+        	btnRegresar.setVisible(false);
+        	GridBagConstraints gbc_btnRegresar = new GridBagConstraints();
+        	gbc_btnRegresar.anchor = GridBagConstraints.NORTH;
+        	gbc_btnRegresar.fill = GridBagConstraints.HORIZONTAL;
+        	gbc_btnRegresar.gridx = 1;
+        	gbc_btnRegresar.gridy = 4;
+        	Registro.add(btnRegresar, gbc_btnRegresar);
         	
         	Menu = new JPanel();
+        	Menu.setBackground(Color.ORANGE);
         	Menu.setBorder(null);
         	frame.getContentPane().add(Menu, "name_411968872411943");
-        	GridBagLayout gbl_Menu = new GridBagLayout();
-        	gbl_Menu.columnWidths = new int[]{80, 70, 0};
-        	gbl_Menu.rowHeights = new int[]{49, 20, 20, 24, 0};
-        	gbl_Menu.columnWeights = new double[]{1.0, 1.0, Double.MIN_VALUE};
-        	gbl_Menu.rowWeights = new double[]{1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
-        	Menu.setLayout(gbl_Menu);
         	Menu.setVisible(true);
+        	//Menu.bac
         	       	
 	       	JLabel lblMenu = new JLabel("Menu");
-	       	GridBagConstraints gbc_lblMenu = new GridBagConstraints();
-	       	gbc_lblMenu.anchor = GridBagConstraints.NORTH;
-	       	gbc_lblMenu.insets = new Insets(0, 0, 5, 0);
-	       	gbc_lblMenu.gridwidth = 2;
-	       	gbc_lblMenu.gridx = 0;
-	       	gbc_lblMenu.gridy = 0;
-	       	Menu.add(lblMenu, gbc_lblMenu);
-	       	lblMenu.setFont(new Font("Tahoma", Font.PLAIN, 40));
+	       	lblMenu.setFont(new Font("Curlz MT", Font.BOLD, 72));
 	
 	       
 	       	lblNombre_1 = new JLabel("Usuario");
-	       	GridBagConstraints gbc_lblNombre_1 = new GridBagConstraints();
-	       	gbc_lblNombre_1.insets = new Insets(0, 0, 5, 5);
-	       	gbc_lblNombre_1.gridx = 0;
-	       	gbc_lblNombre_1.gridy = 1;
-	       	Menu.add(lblNombre_1, gbc_lblNombre_1);
+	       	lblNombre_1.setFont(new Font("Perpetua", Font.PLAIN, 30));
         	
         	
         	txtNombre = new JTextField();
+        	txtNombre.setFont(new Font("Perpetua", Font.PLAIN, 30));
         	txtNombre.setColumns(10);
-        	GridBagConstraints gbc_txtNombre = new GridBagConstraints();
-        	gbc_txtNombre.fill = GridBagConstraints.BOTH;
-        	gbc_txtNombre.insets = new Insets(0, 0, 5, 0);
-        	gbc_txtNombre.gridx = 1;
-        	gbc_txtNombre.gridy = 1;
-        	Menu.add(txtNombre, gbc_txtNombre);
         	
         	
         	lblContrasea = new JLabel("Contrase\u00F1a");
-        	GridBagConstraints gbc_lblContrasea = new GridBagConstraints();
-        	gbc_lblContrasea.insets = new Insets(0, 0, 5, 5);
-        	gbc_lblContrasea.gridx = 0;
-        	gbc_lblContrasea.gridy = 2;
-        	Menu.add(lblContrasea, gbc_lblContrasea);
+        	lblContrasea.setFont(new Font("Perpetua", Font.PLAIN, 30));
         	
         	btnIngresar = new JButton("Ingresar");
         	btnIngresar.addActionListener(new menuListener());
+        	btnIngresar.setFont(new Font("Kristen ITC", Font.BOLD, 24));
         	
         	passwordField = new JPasswordField();
-        	GridBagConstraints gbc_passwordField = new GridBagConstraints();
-        	gbc_passwordField.fill = GridBagConstraints.BOTH;
-        	gbc_passwordField.insets = new Insets(0, 0, 5, 0);
-        	gbc_passwordField.gridx = 1;
-        	gbc_passwordField.gridy = 2;
-        	Menu.add(passwordField, gbc_passwordField);
-        	GridBagConstraints gbc_btnIngresar = new GridBagConstraints();
-        	gbc_btnIngresar.fill = GridBagConstraints.HORIZONTAL;
-        	gbc_btnIngresar.insets = new Insets(0, 0, 0, 5);
-        	gbc_btnIngresar.gridx = 0;
-        	gbc_btnIngresar.gridy = 3;
-        	Menu.add(btnIngresar, gbc_btnIngresar);
+        	passwordField.setFont(new Font("Perpetua", Font.PLAIN, 30));
         	
         	btnRegistrarse = new JButton("Registrarse");
-        	GridBagConstraints gbc_btnRegistrarse = new GridBagConstraints();
-        	gbc_btnRegistrarse.fill = GridBagConstraints.HORIZONTAL;
-        	gbc_btnRegistrarse.gridx = 1;
-        	gbc_btnRegistrarse.gridy = 3;
-        	Menu.add(btnRegistrarse, gbc_btnRegistrarse);
         	btnRegistrarse.addActionListener(new menuListener());
+        	btnRegistrarse.setFont(new Font("Kristen ITC", Font.BOLD, 24));
+        	GroupLayout gl_Menu = new GroupLayout(Menu);
+        	gl_Menu.setHorizontalGroup(
+        		gl_Menu.createParallelGroup(Alignment.LEADING)
+        			.addGroup(Alignment.TRAILING, gl_Menu.createSequentialGroup()
+        				.addGap(83)
+        				.addGroup(gl_Menu.createParallelGroup(Alignment.LEADING)
+        					.addGroup(gl_Menu.createSequentialGroup()
+        						.addGap(124)
+        						.addComponent(lblMenu, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        						.addGap(111))
+        					.addGroup(gl_Menu.createSequentialGroup()
+        						.addGroup(gl_Menu.createParallelGroup(Alignment.LEADING)
+        							.addGroup(gl_Menu.createSequentialGroup()
+        								.addComponent(lblNombre_1, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+        								.addGap(40))
+        							.addGroup(gl_Menu.createSequentialGroup()
+        								.addComponent(lblContrasea, GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+        								.addGap(27))
+        							.addComponent(btnIngresar, GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))
+        						.addGap(25)
+        						.addGroup(gl_Menu.createParallelGroup(Alignment.TRAILING)
+        							.addGroup(gl_Menu.createSequentialGroup()
+        								.addGap(51)
+        								.addComponent(btnRegistrarse, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        							.addGroup(gl_Menu.createParallelGroup(Alignment.LEADING, false)
+        								.addComponent(passwordField, Alignment.TRAILING)
+        								.addComponent(txtNombre, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)))))
+        				.addGap(72))
+        	);
+        	gl_Menu.setVerticalGroup(
+        		gl_Menu.createParallelGroup(Alignment.LEADING)
+        			.addGroup(gl_Menu.createSequentialGroup()
+        				.addGap(91)
+        				.addComponent(lblMenu, GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+        				.addGap(5)
+        				.addGroup(gl_Menu.createParallelGroup(Alignment.BASELINE)
+        					.addGroup(gl_Menu.createSequentialGroup()
+        						.addGap(6)
+        						.addComponent(lblNombre_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        					.addComponent(txtNombre))
+        				.addPreferredGap(ComponentPlacement.UNRELATED)
+        				.addGroup(gl_Menu.createParallelGroup(Alignment.BASELINE)
+        					.addGroup(gl_Menu.createSequentialGroup()
+        						.addGap(6)
+        						.addComponent(lblContrasea, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        					.addComponent(passwordField))
+        				.addGap(18)
+        				.addGroup(gl_Menu.createParallelGroup(Alignment.BASELINE)
+        					.addComponent(btnIngresar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        					.addComponent(btnRegistrarse, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        				.addGap(129))
+        	);
+        	Menu.setLayout(gl_Menu);
 		
 		
 		
@@ -778,5 +786,4 @@ public class Principal {
 		}
 		
 	}
-	
 }
