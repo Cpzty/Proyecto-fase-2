@@ -29,11 +29,10 @@ import java.awt.CardLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
-//DB
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -44,7 +43,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
-public class Principal {
+public class GUI {
 
 	private JFrame frame;
 	private JTextField txtNombre;
@@ -94,7 +93,7 @@ public class Principal {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Principal window = new Principal();
+					GUI window = new GUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -106,10 +105,10 @@ public class Principal {
 	/**
 	 * Create the application.
 	 */
-	Connection conector = null;
-	public Principal() {
+	Connection connection = null;
+	public GUI() {
+		connection = Conector.ConnectDB();
 		initialize();
-		conector = Conector.ConnectDB();
 		ComboBox();
 		Random();
 	}
@@ -742,22 +741,56 @@ public class Principal {
 				btnRegresar.setVisible(false);
 				btnRegistrarse2.setVisible(true);
 			}else if (event.getSource().equals(btnIngresar)){
-				Menu.setVisible(false);
-    			lblNombre_1.setVisible(false);
-    			txtNombre.setVisible(false);
-    			lblContrasea.setVisible(false);
-    			passwordField.setVisible(false);
-    			btnIngresar.setVisible(false);
-    			Registro.setVisible(false);
-    			lblRegistro.setVisible(false);
-    			lblNombre2.setVisible(false);
-    			lblContrasena2.setVisible(false);
-    			txtNombre2.setVisible(false);
-    			txtContrasea.setVisible(false);
-    			btnRegresar.setVisible(false);
-    			btnRegistrarse2.setVisible(false);
-    			lblRegistro.setVisible(true);
-    			tabbedPane.setVisible(true);
+				
+				try {
+					String query = "select * from ReciGuate where USUARIO=? and password=? ";
+					PreparedStatement pst= connection.prepareStatement(query);
+					pst.setString(1, txtNombre.getText());
+					pst.setString(2, passwordField.getText());
+					
+					int count = 0;
+					ResultSet rs=pst.executeQuery();
+					while(rs.next()){
+						count = count +1;
+					}
+					if(count==1){
+						JOptionPane.showMessageDialog(null, "username and password is correct");
+						Menu.setVisible(false);
+						lblNombre_1.setVisible(false);
+						txtNombre.setVisible(false);
+						lblContrasea.setVisible(false);
+						passwordField.setVisible(false);
+						btnIngresar.setVisible(false);
+						Registro.setVisible(false);
+						lblRegistro.setVisible(false);
+						lblNombre2.setVisible(false);
+						lblContrasena2.setVisible(false);
+						txtNombre2.setVisible(false);
+						txtContrasea.setVisible(false);
+						btnRegresar.setVisible(false);
+						btnRegistrarse2.setVisible(false);
+						lblRegistro.setVisible(true);
+						tabbedPane.setVisible(true);
+					}
+					
+					else if(count>1){
+						JOptionPane.showMessageDialog(null, "Duplicate and username and password");
+					}
+					
+					else{
+						JOptionPane.showMessageDialog(null, "username or password is not correct");
+					}
+			         
+					rs.close();
+					pst.close();
+					
+			      } catch (Exception e) {
+			         JOptionPane.showMessageDialog(null, e);
+			      }
+				
+			     
+				
+				
 			} else if (event.getSource().equals(btnRegistrarse)){
 				Menu.setVisible(false);
         		lblNombre_1.setVisible(false);

@@ -23,23 +23,26 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 public class Conector {
     
-    public void ConnectDB()
+    public static Connection ConnectDB(){
     {
-        Connection c = null;
+       
       try {
          Class.forName("org.postgresql.Driver");
-         c = DriverManager
+         Connection c = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/ReciGuate",
             "postgres", "root");
          c.setAutoCommit(false);
+         return c;
       } catch (Exception e) {
          e.printStackTrace();
          System.err.println(e.getClass().getName()+": "+e.getMessage());
          System.exit(0);
       }
       System.out.println("Opened database successfully");
+      return null;
     }
     
+    }
     
     
     public JTable GetInfoFromQuery(String Query)
