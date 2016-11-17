@@ -384,12 +384,13 @@ public class GUI {
         	Menu.setVisible(true);
         	       	
 	       	JLabel lblMenu = new JLabel("Menu");
-	       	lblMenu.setBounds(274, 91, 430, 128);
+	       	lblMenu.setBounds(299, 47, 192, 128);
 	       	lblMenu.setFont(new Font("Curlz MT", Font.BOLD, 72));
 	
 	       	lblNombre_1 = new JLabel("Usuario");
+	       	lblNombre_1.setForeground(SystemColor.infoText);
 	       	lblNombre_1.setBounds(83, 230, 248, 67);
-	       	lblNombre_1.setFont(new Font("Perpetua", Font.PLAIN, 30));
+	       	lblNombre_1.setFont(new Font("Perpetua", Font.BOLD, 30));
         	
         	txtNombre = new JTextField();
         	txtNombre.setBounds(539, 224, 209, 41);
@@ -398,7 +399,7 @@ public class GUI {
         	
         	lblContrasea = new JLabel("Contrase\u00F1a");
         	lblContrasea.setBounds(83, 316, 261, 67);
-        	lblContrasea.setFont(new Font("Perpetua", Font.PLAIN, 30));
+        	lblContrasea.setFont(new Font("Perpetua", Font.BOLD, 30));
         	
         	btnIngresar = new JButton("Ingresar");
         	btnIngresar.setBounds(83, 401, 288, 41);
@@ -424,8 +425,8 @@ public class GUI {
         	Menu.add(txtNombre);
         	
         	lblNewLabel_1 = new JLabel("New label");
-        	lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Universidad Del Valle de Guatemala\\Primer A\u00F1o\\Segundo Semestre\\Imagenes_Progra\\dia-del-reciclaje-index.jpg"));
-        	lblNewLabel_1.setBounds(-33, 0, 822, 573);
+        	lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Programas en JAVA (UVG)\\fase 2\\Proyecto-fase-2\\fondo1.jpg"));
+        	lblNewLabel_1.setBounds(-252, 0, 1074, 573);
         	Menu.add(lblNewLabel_1);
 		
 		
