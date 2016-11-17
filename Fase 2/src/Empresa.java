@@ -16,12 +16,10 @@ public class Empresa {
          System.out.println("Opened database successfully");
 
          stmt = c.createStatement();
-         String sql = "CREATE TABLE COMPANY " +
-                      "(ID INT PRIMARY KEY     NOT NULL," +
-                      " NAME           TEXT    NOT NULL, " +
-                      " AGE            INT     NOT NULL, " +
-                      " ADDRESS        CHAR(50), " +
-                      " SALARY         REAL)";
+         String sql = "CREATE TABLE EMPRESA " +
+                 "(ID INT PRIMARY KEY     NOT NULL," +
+                 " NOMBRE           TEXT    NOT NULL, " +
+                 " PASSWORD         INT     NOT NULL),"; 
          stmt.executeUpdate(sql);
          stmt.close();
          c.close();
