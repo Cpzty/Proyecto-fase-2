@@ -196,7 +196,7 @@ public class GUI {
         	Buscar.add(lblPagina);
         	Buscar.add(lblTelefono);
         	
-        	lblMunicipio = new JLabel("Municipio");
+        	lblMunicipio = new JLabel("Area");
         	lblMunicipio.setForeground(new Color(0, 102, 0));
         	lblMunicipio.setFont(new Font("Sylfaen", Font.PLAIN, 30));
         	lblMunicipio.setBackground(new Color(51, 204, 51));
@@ -430,6 +430,15 @@ public class GUI {
 			CBMaterial.addItem("plastico y vidrio");
 			CBMaterial.addItem("plastico y metal");
 			CBMaterial.addItem("vidrio y metal");
+			comboBoxMunicipio.addItem("Ciudad de Guatemala");
+			comboBoxMunicipio.addItem("Mixco");
+			comboBoxMunicipio.addItem("Villa Nueva");
+			comboBoxMunicipio.addItem("Xela");
+			comboBoxMunicipio.addItem("Carretera Paramericana");
+			comboBoxMunicipio.addItem("Antigua");
+			comboBoxMunicipio.addItem("Villa Hermosa");
+			comboBoxMunicipio.addItem("Santa Rosa");
+			
 		 for (int i=1;i<21;i++){
 				if(i !=20)
 					CBZona.addItem(i);
@@ -438,6 +447,11 @@ public class GUI {
 		 for (int i = 0; i < guate.ciudad.length;i++){
 			 comboBoxNombres.addItem(guate.ciudad[i].getNombre());
 		 }
+
+         for (int i = 0; i < guate.exterior.length;i++){
+             comboBoxNombres.addItem(guate.exterior[i].getNombre());
+             
+         }
   }
 	
 	public void Random(){
@@ -485,7 +499,7 @@ public class GUI {
 			/** 
 			 * muestra la informacion de la recicladora
 			 */
-			if (e.getSource()==btnBuscarEmpresa){
+			if (e.getSource()==btnBuscarEmpresa && comboBoxMunicipio.getSelectedItem().equals("Ciudad de Guatemala")){
 				//muestra los resultados en labels de la informacion pedida
 				
 				lblNombre.setText("Nombre: "+guate.buscarRecicladora((String)CBMaterial.getSelectedItem(),(int)CBZona.getSelectedItem(),"nombre"));
@@ -505,13 +519,47 @@ public class GUI {
 			    
 
 			}
+
+            if (e.getSource()==btnBuscarEmpresa && comboBoxMunicipio.getSelectedItem().equals("Ciudad de Guatemala") == false){
+                int zona = 0;
+                if (comboBoxMunicipio.getSelectedItem().equals("Mixco"))
+                    zona = 100;
+                else if (comboBoxMunicipio.getSelectedItem().equals("Villa Nueva"))
+                    zona = 101;
+                else if (comboBoxMunicipio.getSelectedItem().equals("Xela"))
+                    zona = 102;
+                else if (comboBoxMunicipio.getSelectedItem().equals("Carretera Paramericana"))
+                    zona = 103;
+                else if (comboBoxMunicipio.getSelectedItem().equals("Antigua"))
+                    zona = 104;
+                else if (comboBoxMunicipio.getSelectedItem().equals("Villa Hermosa"))
+                    zona = 105;
+                else if (comboBoxMunicipio.getSelectedItem().equals("Santa Rosa"))
+                    zona = 106;
+                
+                lblNombre.setText("Nombre: "+guate.buscarFueraCiudad((String)CBMaterial.getSelectedItem(), zona, "nombre"));
+                lblDireccion.setText("Direccion: "+guate.buscarFueraCiudad((String)CBMaterial.getSelectedItem(), zona, "direccion"));
+                lblTelefono.setText("Telefono: "+guate.buscarFueraCiudad((String)CBMaterial.getSelectedItem(), zona, "telefono"));
+                lblPagina.setText("Pagina Web: "+guate.buscarFueraCiudad((String)CBMaterial.getSelectedItem(), zona, "pagina"));
+                
+                String cadena;
+                cadena=guate.buscarFueraCiudad((String)CBMaterial.getSelectedItem(),zona,"id");
+                int id=0;
+                id=Integer.parseInt(cadena);
+                
+                lblMapa.setVisible(true);
+                ImageIcon i=new ImageIcon("Mapa"+id+".png"); 
+                lblMapa.setIcon(i); 
+                lblMapa.setBounds(55, 160, 407, 256);
+            }
+            
 			if (e.getSource()==btnCalcular){
 				String material=cbxMateriales.getSelectedItem().toString();
 				double cantidad= Double.parseDouble(txtCantidad.getText());
 				String dimensional=cbxDimensional.getSelectedItem().toString();
 				
 				if (txtCantidad.getText().length()==0){
-					JOptionPane.showMessageDialog(frame,"La caja de texto no contiene n�meros.","Inane warning",JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(frame,"La caja de texto no contiene nï¿½meros.","Inane warning",JOptionPane.WARNING_MESSAGE);
 				}
 				else{
 					//si presiona el boton hay programacion defensiva y se ejecutan las instrucciones correspondientes
@@ -521,21 +569,21 @@ public class GUI {
 						cadena2=" libros.";
 					}
 					if (material.equals("Vidrio")){
-						cadena2="% de la pir�mide de Louvre.";
+						cadena2="% de la pirï¿½mide de Louvre.";
 					}
 					if (material.equals("Metal")){
 						cadena2="% de la torre Eiffel.";
 					}
 					if (material.equals("Plastico")){
-						cadena2=" mu�ecas barbies.";
+						cadena2=" muï¿½ecas barbies.";
 					}
 					try{
 						lblResultado.setText(cadena1+decimales.format(c.convertir(cantidad,dimensional,material))+cadena2);
-						lblDineroAhorrado.setText("Si recicla esa cantidad, habr� ahorrado Q"+c.NuevoMateriales(cantidad,dimensional,material)+" a la industria.");
-						lblDineroRecibido.setText("Adem�s, recibir� Q"+c.RecicladoMateriales(cantidad,dimensional,material)+" de parte de la recicladora.");
+						lblDineroAhorrado.setText("Si recicla esa cantidad, habrá ahorrado Q"+c.NuevoMateriales(cantidad,dimensional,material)+" a la industria.");
+						lblDineroRecibido.setText("Además, recibirá Q"+c.RecicladoMateriales(cantidad,dimensional,material)+" de parte de la recicladora.");
 					}
 					catch (Exception e3){
-						JOptionPane.showMessageDialog(frame,"Ingrese un n�mero.","Inane warning",JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(frame,"Ingrese un nï¿½mero.","Inane warning",JOptionPane.WARNING_MESSAGE);
 					}
 					
 				}

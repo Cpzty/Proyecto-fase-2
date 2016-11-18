@@ -344,7 +344,7 @@ public class CiudadVerde {
 		else{
 			for (int i = 0; i < exterior.length; i++){
 				if (exterior[i].getZona() == zona){
-					exterior[i].toString(regresar);
+					cadena = exterior[i].toString(regresar);
 				}
 			}
 		}
