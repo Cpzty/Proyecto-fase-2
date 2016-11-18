@@ -555,37 +555,40 @@ public class GUI {
             
 			if (e.getSource()==btnCalcular){
 				String material=cbxMateriales.getSelectedItem().toString();
-				double cantidad= Double.parseDouble(txtCantidad.getText());
-				String dimensional=cbxDimensional.getSelectedItem().toString();
 				
-				if (txtCantidad.getText().length()==0){
-					JOptionPane.showMessageDialog(frame,"La caja de texto no contiene nï¿½meros.","Inane warning",JOptionPane.WARNING_MESSAGE);
-				}
-				else{
-					//si presiona el boton hay programacion defensiva y se ejecutan las instrucciones correspondientes
-					String cadena1="Esto implica reciclar ";
-					String cadena2="";
-					if (material.equals("Papel")){
-						cadena2=" libros.";
+				String dimensional=cbxDimensional.getSelectedItem().toString();
+				try{
+					double cantidad= Double.parseDouble(txtCantidad.getText());
+					if (txtCantidad.getText().length()==0){
+						JOptionPane.showMessageDialog(frame,"La caja de texto no contiene nï¿½meros.","Inane warning",JOptionPane.WARNING_MESSAGE);
 					}
-					if (material.equals("Vidrio")){
-						cadena2="% de la pirï¿½mide de Louvre.";
+					else{
+						//si presiona el boton hay programacion defensiva y se ejecutan las instrucciones correspondientes
+						String cadena1="Esto implica reciclar ";
+						String cadena2="";
+						if (material.equals("Papel")){
+							cadena2=" libros.";
+						}
+						if (material.equals("Vidrio")){
+							cadena2="% de la pirï¿½mide de Louvre.";
+						}
+						if (material.equals("Metal")){
+							cadena2="% de la torre Eiffel.";
+						}
+						if (material.equals("Plastico")){
+							cadena2=" muï¿½ecas barbies.";
+						}
+						try{
+							lblResultado.setText(cadena1+decimales.format(c.convertir(cantidad,dimensional,material))+cadena2);
+							lblDineroAhorrado.setText("Si recicla esa cantidad, habrá ahorrado Q"+c.NuevoMateriales(cantidad,dimensional,material)+" a la industria.");
+							lblDineroRecibido.setText("Además, recibirá Q"+c.RecicladoMateriales(cantidad,dimensional,material)+" de parte de la recicladora.");
+						}
+						catch (Exception e3){
+							JOptionPane.showMessageDialog(frame,"Ingrese un nï¿½mero.","Inane warning",JOptionPane.WARNING_MESSAGE);
+						}
 					}
-					if (material.equals("Metal")){
-						cadena2="% de la torre Eiffel.";
-					}
-					if (material.equals("Plastico")){
-						cadena2=" muï¿½ecas barbies.";
-					}
-					try{
-						lblResultado.setText(cadena1+decimales.format(c.convertir(cantidad,dimensional,material))+cadena2);
-						lblDineroAhorrado.setText("Si recicla esa cantidad, habrá ahorrado Q"+c.NuevoMateriales(cantidad,dimensional,material)+" a la industria.");
-						lblDineroRecibido.setText("Además, recibirá Q"+c.RecicladoMateriales(cantidad,dimensional,material)+" de parte de la recicladora.");
-					}
-					catch (Exception e3){
-						JOptionPane.showMessageDialog(frame,"Ingrese un nï¿½mero.","Inane warning",JOptionPane.WARNING_MESSAGE);
-					}
-					
+				}catch (Exception e4){
+					JOptionPane.showMessageDialog(frame,"Ingrese un nï¿½mero.","Inane warning",JOptionPane.WARNING_MESSAGE);
 				}
 			}
 			
