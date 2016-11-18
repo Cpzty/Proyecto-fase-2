@@ -85,6 +85,7 @@ public class GUI {
 
 	/**
 	 * Create the application.
+	 * Se conecta a la  base de datos
 	 */
 	public GUI() {
 		initialize();
@@ -97,6 +98,11 @@ public class GUI {
 	 */
 	
 	private void initialize() {
+		/**
+		 * inicializa la clase de conector donde se encuentran los metodos para guardar y obtener datos de la base de datos
+		 * Se inicia ciudad verde
+		 * Se inician componentes de la GUI
+		 */
 		
 			guate= new CiudadVerde();
 			connection = new Conector();
@@ -285,6 +291,11 @@ public class GUI {
         	lblInfoWeb.setForeground(new Color(0, 102, 0));
         	VerRecicladoras.add(lblInfoWeb);
         	
+        	/**
+    		 * el panel de registro sirve para que una persona cree su usuario, esta oculto al inicio 
+    		 * Posee un boton de registro y uno para regresar al menu principal
+    		 */
+        	
         	Registro = new JPanel();
         	Registro.setBorder(null);
         	frame.getContentPane().add(Registro, "name_411968859242604");
@@ -328,6 +339,12 @@ public class GUI {
         	btnRegresar.addActionListener(new menuListener());
         	btnRegresar.setVisible(false);
         	Registro.add(btnRegresar);
+        	
+        	/**
+        	 * el menu principal es el panel que esta visible cuando se inicia el programa
+        	 * Contiene un boton de ingreso y un boton que vuelve visible el panel de registro y el menu deja de ser visible
+        	 * En caso el ingreso fuera exitoso, muestra el "segundo" gui que contiene el programa principal
+        	 */
         	
         	Menu = new JPanel();
         	Menu.setBackground(Color.ORANGE);
@@ -380,6 +397,9 @@ public class GUI {
 		
 		
 	}
+	/**
+	 * El combobox tiene varios materiales que el usuario selecciona y la manera como los quiere ingresar tambien.
+	 */
 	
 	public void ComboBox() {
 		//se llenan los combobox
@@ -451,6 +471,9 @@ public class GUI {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
+			/** 
+			 * muestra la informacion de la recicladora
+			 */
 			if (e.getSource()==btnBuscarEmpresa){
 				//muestra los resultados en labels de la informacion pedida
 				
@@ -525,7 +548,9 @@ public class GUI {
 		@Override
 		public void actionPerformed(ActionEvent event) {
 			// TODO Auto-generated method stub
-			
+			/**
+			 * Hace que el menu y sus componentes se vuelvan visibles viniendo del panel registro hacia el panel menu
+			 */
 			if (event.getSource().equals(btnRegresar)){
 				Menu.setVisible(true);
 				lblNombre_1.setVisible(true);
@@ -541,6 +566,12 @@ public class GUI {
 				txtContrasea.setVisible(false);
 				btnRegresar.setVisible(false);
 				btnRegistrarse2.setVisible(true);
+				
+				/**
+				 * Busca en la base de datos si existe un usuario como el que fue ingresado y una contrasena
+				 * Deben ser iguales a lo que se guardo para que muestre el mensaje de exito y en tal caso cambia el menu a no visible
+				 * y el programa se vuelve visible
+				 */
 			}else if (event.getSource().equals(btnIngresar)){
 				String nombre = txtNombre.getText();
 				char[] password = passwordField.getPassword();
@@ -548,6 +579,10 @@ public class GUI {
 				for (int i = 0; i < password.length; i++){
 					contrasenia = contrasenia + password[i];
 				}
+				
+				/**
+				 * revisa si el usuario y contrasena son correctos y vuelve el menu invisible y permite ver el programa principal(tabs)
+				 */
 				boolean login = connection.buscar(nombre, contrasenia);
 
 					if(login){
@@ -574,7 +609,9 @@ public class GUI {
 					}
 			     
 				
-				
+					/**
+					 * si se presiona el boton de registrarse, menu se vuelve invisible y el panel de registro se vuelve visible
+					 */
 			} else if (event.getSource().equals(btnRegistrarse)){
 				Menu.setVisible(false);
         		lblNombre_1.setVisible(false);
@@ -590,6 +627,10 @@ public class GUI {
         		txtContrasea.setVisible(true);
         		btnRegresar.setVisible(true);
         		btnRegistrarse2.setVisible(true);
+        		
+        		/**
+    			 * Sirve para que el usuario se registre y lo agrega a la base de datos
+    			 */
 			}else if (event.getSource().equals(btnRegistrarse2)){
 				
 				String nombre = txtNombre2.getText();
