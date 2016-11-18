@@ -10,32 +10,13 @@
  */
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+
 public class Conector {
-    public void conectar(){
-    	 Connection c = null;
-         try {
-            Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ReciGuate", "postgres", "root");
-         } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
-            System.exit(0);
-         }
-         System.out.println("Opened database successfully");
-    }
     
-    public void agregar(String sql){
+    public void agregar(String nombre, String contrasenia){
     	 Connection c = null;
          Statement stmt = null;
          try {
@@ -46,6 +27,15 @@ public class Conector {
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM USUARIOS;" );
+            int contador = 0;
+            while ( rs.next() ) {
+            	contador++;
+            }
+            contador = contador+1;
+            String sql = "INSERT INTO USUARIOS (ID,NAME,PASSWORD) "
+		               + "VALUES ("+contador+", '"+nombre+"', '"+contrasenia+"');";
+            
             stmt.executeUpdate(sql);
 
             stmt.close();
@@ -72,7 +62,6 @@ public class Conector {
            stmt = c.createStatement();
            ResultSet rs = stmt.executeQuery( "SELECT * FROM USUARIOS;" );
            while ( rs.next() ) {
-              int id = rs.getInt("id");
               String  name = rs.getString("name");
               String pass = rs.getString("password");
               if (name.equals(nombre) && pass.equals(contrasenia)){
