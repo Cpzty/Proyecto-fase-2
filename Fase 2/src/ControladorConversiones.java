@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 /**
  * 
  * @author Luis Diego Fernández
@@ -11,7 +13,7 @@
  */
 
 class ControladorConversiones {
-
+	DecimalFormat decimales = new DecimalFormat("0.00");
 /**
  * Calcula la cantidad de papel utilizando las conversiones
  * @param cant
@@ -88,6 +90,54 @@ class ControladorConversiones {
       }
       return resultado;
     }  
-
-
+/**
+ * 
+ * @param cant
+ * @param lb_kg
+ * @param material
+ * @return
+ */
+    public String NuevoMateriales(double cant , String lb_kg, String material){
+    	if (lb_kg.equals("lb")){
+            cant = Conversiones.lbsAkg(cant);
+          }
+        double resultado=0;
+        material=material.toLowerCase();
+        if (material.equals("papel")==true){
+          resultado=Conversiones.NuevoPapel(cant);
+        }else if(material.equals("metal")==true){
+          resultado=Conversiones.NuevoMetal(cant);
+        }else if(material.equals("plastico")==true){
+          resultado=Conversiones.NuevoPlastico(cant);
+        }else if(material.equals("vidrio")==true){
+          resultado=Conversiones.NuevoVidrio(cant);
+        }
+        
+        return decimales.format(resultado);
+      }  
+/**
+ * 
+ * @param cant
+ * @param lb_kg
+ * @param material
+ * @return
+ */
+    public String RecicladoMateriales(double cant , String lb_kg, String material){
+    	if (lb_kg.equals("lb")){
+            cant = Conversiones.lbsAkg(cant);
+          }
+        double resultado=0;
+        material=material.toLowerCase();
+        if (material.equals("papel")==true){
+          resultado=Conversiones.RecicladoPapel(cant);
+        }else if(material.equals("metal")==true){
+          resultado=Conversiones.RecicladoMetal(cant);
+        }else if(material.equals("plastico")==true){
+          resultado=Conversiones.RecicladoPlastico(cant);
+        }else if(material.equals("vidrio")==true){
+          resultado=Conversiones.RecicladoVidrio(cant);
+        }
+        
+        return decimales.format(resultado);
+      }  
 }

@@ -32,7 +32,7 @@ public class Conversiones {
  * @return
  */
   public static double kilosAarboles(double kilo){
-    return kilo/750.0;
+    return kilo/750;
   }
 /**
  * 
@@ -75,4 +75,68 @@ public class Conversiones {
   public static double barby(double kg){
     return kg / 0.38;
   }
+  /**
+   * 
+   * @param kg
+   * @return
+   */
+  public static double NuevoPapel(double kg){
+	    return kg*3.75;
+	  }
+  /**
+   * 
+   * @param kg
+   * @return
+   */
+  public static double NuevoMetal(double kg){
+	    return kg*13.875;
+	  }
+  /**
+   * 
+   * @param kg
+   * @return
+   */
+  public static double NuevoPlastico(double kg){
+	    return kg*9;
+	  }
+  /**
+   * 
+   * @param kg
+   * @return
+   */
+  public static double NuevoVidrio(double kg){
+	    return kg*0.186;
+	  }
+  /**
+   * 
+   * @param kg
+   * @return
+   */
+  public static double RecicladoPapel(double kg){
+	    return kg*0.2;
+	  }
+  /**
+   * 
+   * @param kg
+   * @return
+   */
+  public static double RecicladoMetal(double kg){
+	    return kg*2.25;
+	  }
+  /**
+   * 
+   * @param kg
+   * @return
+   */
+  public static double RecicladoPlastico(double kg){
+	    return kg*0.55;
+	  }
+  /**
+   * 
+   * @param kg
+   * @return
+   */
+  public static double RecicladoVidrio(double kg){
+	    return kg*0.09;
+	  }
 }

@@ -64,8 +64,9 @@ public class GUI {
 	private JButton btnRegistrarse2;
 	private JButton btnRegresar;
 	private JTabbedPane tabbedPane;
-	private JLabel lblMunicipio;
+	private JLabel lblMunicipio, lblDineroAhorrado;
 	private JComboBox<Object> comboBoxMunicipio;
+	private JLabel lblDineroRecibido;
 
 	/**
 	 * Launch the application.
@@ -234,7 +235,7 @@ public class GUI {
         	Reciclar.add(lblIngreseLaCantidad);
         	
         	lblResultado = new JLabel("Resultado:");
-        	lblResultado.setBounds(157, 54, 296, 16);
+        	lblResultado.setBounds(157, 57, 366, 16);
         	lblResultado.setForeground(new Color(0, 102, 0));
         	Reciclar.add(lblResultado);
         	
@@ -252,6 +253,16 @@ public class GUI {
         	cbxDimensional.setBounds(0, 123, 152, 22);
         	cbxDimensional.setBackground(new Color(255, 255, 255));
         	Reciclar.add(cbxDimensional);
+        	
+        	lblDineroAhorrado = new JLabel("Dinero ahorrado:");
+        	lblDineroAhorrado.setForeground(new Color(0, 102, 0));
+        	lblDineroAhorrado.setBounds(157, 91, 366, 16);
+        	Reciclar.add(lblDineroAhorrado);
+        	
+        	lblDineroRecibido = new JLabel("Cantidad de dinero que recibir\u00E1:");
+        	lblDineroRecibido.setForeground(new Color(0, 102, 0));
+        	lblDineroRecibido.setBounds(157, 127, 366, 16);
+        	Reciclar.add(lblDineroRecibido);
         	
         	JPanel VerRecicladoras = new JPanel();
         	VerRecicladoras.setBackground(new Color(204, 255, 153));
@@ -504,26 +515,24 @@ public class GUI {
 				}
 				else{
 					//si presiona el boton hay programacion defensiva y se ejecutan las instrucciones correspondientes
-					String cadena1="";
+					String cadena1="Esto implica reciclar ";
 					String cadena2="";
 					if (material.equals("Papel")){
-						cadena1="Ha reciclado ";
-						cadena2=" ï¿½rboles.";
+						cadena2=" libros.";
 					}
 					if (material.equals("Vidrio")){
-						cadena1="Ha reciclado ";
 						cadena2="% de la pirï¿½mide de Louvre.";
 					}
 					if (material.equals("Metal")){
-						cadena1="Ha reciclado ";
 						cadena2="% de la torre Eiffel.";
 					}
 					if (material.equals("Plastico")){
-						cadena1="Ha reciclado ";
 						cadena2=" muï¿½ecas barbies.";
 					}
 					try{
 						lblResultado.setText(cadena1+decimales.format(c.convertir(cantidad,dimensional,material))+cadena2);
+						lblDineroAhorrado.setText("Si recicla esa cantidad, habrá ahorrado Q"+c.NuevoMateriales(cantidad,dimensional,material)+" a la industria.");
+						lblDineroRecibido.setText("Además, recibirá Q"+c.RecicladoMateriales(cantidad,dimensional,material)+" de parte de la recicladora.");
 					}
 					catch (Exception e3){
 						JOptionPane.showMessageDialog(frame,"Ingrese un nï¿½mero.","Inane warning",JOptionPane.WARNING_MESSAGE);
@@ -641,5 +650,4 @@ public class GUI {
 		}
 		
 	}
-	
 }
