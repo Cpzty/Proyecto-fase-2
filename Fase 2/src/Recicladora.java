@@ -183,22 +183,22 @@ public class Recicladora {
 		String [] sMateriales = {"Papel", "Plastico", "Metal", "Vidrio"};
 		String cadena = "";
 		
-		if (regresar == "id")
+		if (regresar.equals("id"));
 			cadena = Integer.toString(getId());
 		
-		if (regresar == "nombre")
+		if (regresar.equals("nombre"))
 			cadena = getNombre();
 		
-		if (regresar == "direccion")
+		if (regresar.equals("direccion"))
 			cadena = getDireccion();
 		
-		if (regresar == "telefono")
+		if (regresar.equals("telefono"))
 			cadena = getTelefono();
 		
-		if (regresar == "pagina")
+		if (regresar.equals("pagina"))
 			cadena = getPagina();
 		
-		if (regresar == "materiales"){
+		if (regresar.equals("materiales")){
 			cadena ="";
 			for (int i = 0; i < 4; i++){
 				if (bMateriales[i] == true){

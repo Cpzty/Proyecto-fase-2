@@ -16,7 +16,7 @@ public class Conector {
 	 * @param nombre El nombre del usuario
 	 * @param contrasenia La contrasenia del usuario
 	 */
-    public void agregar(String nombre, String contrasenia){
+    public void agregar(String nombre, String contrasenia, String empresa){
     	 Connection c = null; //Se crea un objeto de tipo coneccion para conectar a la base de datos
          Statement stmt = null; //Se crea un objeto de tipo statement, que se usara para enviarle la orden a la base de datos
          try {
@@ -32,7 +32,7 @@ public class Conector {
 				contador++;
 			}
 			contador = contador+1; //Se le suma uno al tamanio final de la tabla para ser usado como un nuevo ID
-			String sql = "INSERT INTO USUARIOS (ID,NAME,PASSWORD) " + "VALUES ("+contador+", '"+nombre+"', '"+contrasenia+"');"; //Se crea un String con la notacion especial de base de datos este debe de ir  con el  orden de Ingreso de datos (de la tabla)
+			String sql = "INSERT INTO USUARIOS (ID,NAME,PASSWORD,BUSSINES) " + "VALUES ("+contador+", '"+nombre+"', '"+contrasenia+"', "+empresa+");"; //Se crea un String con la notacion especial de base de datos este debe de ir  con el  orden de Ingreso de datos (de la tabla)
 			
 			stmt.executeUpdate(sql); //Se envia la orden de ingreso a la base de datos
 			

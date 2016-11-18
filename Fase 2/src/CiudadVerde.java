@@ -334,7 +334,7 @@ public class CiudadVerde {
 		material1.toLowerCase();
 		
 		if (zona == 100){
-			if (material1.equals("papel")){
+			if (material1.equals("Papel")){
 				cadena = amigosNaturaleza.toString(regresar);
 			}
 			else{

@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JTabbedPane;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -20,6 +21,9 @@ import java.util.Random;
 import java.awt.event.ActionEvent;
 import java.awt.CardLayout;
 import java.awt.SystemColor;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import javax.swing.JRadioButton;
 
 
 
@@ -72,6 +76,9 @@ public class GUI {
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_4;
+	private JPanel panelMapa;
+	private JRadioButton rdbtnUsuarioComun;
+	private JRadioButton rdbtnEmpresa;
 
 	/**
 	 * Launch the application.
@@ -118,6 +125,7 @@ public class GUI {
 			frmMenuPrincipal.getContentPane().setBackground(new Color(255, 255, 255));
 			frmMenuPrincipal.setBounds(100, 100, 838, 645);
 			frmMenuPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frmMenuPrincipal.setResizable(false);
         	
         	tabbedPane = new JTabbedPane(JTabbedPane.TOP);
         	tabbedPane.setVisible(false);
@@ -134,7 +142,7 @@ public class GUI {
         	lblMaterial.setFont(new Font("Sylfaen", Font.BOLD, 30));
         	
         	lblNombre = new JLabel("Nombre");
-        	lblNombre.setBounds(334, 17, 328, 33);
+        	lblNombre.setBounds(334, 17, 469, 33);
         	lblNombre.setForeground(new Color(0, 0, 51));
         	lblNombre.setFont(new Font("Lucida Bright", Font.BOLD, 21));
         	
@@ -144,7 +152,7 @@ public class GUI {
         	CBMaterial.setBackground(new Color(255, 255, 255));
         	
         	lblDireccion = new JLabel("Direccion");
-        	lblDireccion.setBounds(333, 61, 328, 24);
+        	lblDireccion.setBounds(333, 61, 469, 24);
         	lblDireccion.setForeground(new Color(0, 0, 51));
         	lblDireccion.setFont(new Font("Lucida Bright", Font.BOLD, 21));
         	
@@ -155,17 +163,19 @@ public class GUI {
         	lblZona.setFont(new Font("Sylfaen", Font.BOLD, 30));
         	
         	lblTelefono = new JLabel("Telefono");
-        	lblTelefono.setBounds(336, 100, 328, 24);
+        	lblTelefono.setBounds(336, 100, 466, 24);
         	lblTelefono.setForeground(new Color(0, 0, 51));
         	lblTelefono.setFont(new Font("Lucida Bright", Font.BOLD, 21));
         	
         	CBZona = new JComboBox<Integer>();
+        	CBZona.setEnabled(false);
         	CBZona.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 18));
         	CBZona.setBounds(70, 202, 238, 35);
         	CBZona.setBackground(new Color(255, 255, 255));
+        	CBZona.setEnabled(false);
         	
         	lblPagina = new JLabel("Pagina Web");
-        	lblPagina.setBounds(337, 141, 328, 24);
+        	lblPagina.setBounds(337, 141, 465, 24);
         	lblPagina.setForeground(new Color(0, 0, 51));
         	lblPagina.setFont(new Font("Lucida Bright", Font.BOLD, 21));
         	
@@ -175,26 +185,21 @@ public class GUI {
         	btnBuscarEmpresa.setBackground(new Color(255, 255, 255));
         	btnBuscarEmpresa.addActionListener(new actionlistener());
         	
-        	lblMapa = new JLabel("");
-        	lblMapa.setBounds(424, 301, 347, 186);
-        	lblMapa.setForeground(new Color(0, 128, 0));
-        	lblMapa.setVisible(false);
-        	
         	lblDatoCurioso = new JLabel("Dato curioso:");
-        	lblDatoCurioso.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 14));
-        	lblDatoCurioso.setBounds(0, 471, 562, 33);
+        	lblDatoCurioso.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 17));
+        	lblDatoCurioso.setBounds(25, 534, 562, 33);
         	lblDatoCurioso.setForeground(new Color(0, 204, 51));
         	
         	comboBoxMunicipio = new JComboBox<Object>();
         	comboBoxMunicipio.setFont(new Font("Microsoft YaHei UI Light", Font.PLAIN, 18));
         	comboBoxMunicipio.setBounds(70, 120, 236, 38);
+        	comboBoxMunicipio.addActionListener(new actionlistener());
         	
         	Buscar.setLayout(null);
         	Buscar.add(lblMaterial);
         	Buscar.add(CBMaterial);
         	Buscar.add(lblNombre);
         	Buscar.add(lblDatoCurioso);
-        	Buscar.add(lblMapa);
         	Buscar.add(btnBuscarEmpresa);
         	Buscar.add(lblZona);
         	Buscar.add(CBZona);
@@ -209,6 +214,27 @@ public class GUI {
         	lblMunicipio.setBackground(new Color(51, 204, 51));
         	lblMunicipio.setBounds(36, 79, 204, 40);
         	Buscar.add(lblMunicipio);
+        	
+        	panelMapa = new JPanel();
+        	panelMapa.setBackground(Color.WHITE);
+        	panelMapa.setBounds(370, 280, 433, 258);
+        	Buscar.add(panelMapa);
+        	GridBagLayout gbl_panel = new GridBagLayout();
+        	gbl_panel.columnWidths = new int[]{31, 0};
+        	gbl_panel.rowHeights = new int[]{16, 0};
+        	gbl_panel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
+        	gbl_panel.rowWeights = new double[]{1.0, Double.MIN_VALUE};
+        	panelMapa.setLayout(gbl_panel);
+        	
+        	
+        	lblMapa = new JLabel("");
+        	GridBagConstraints gbc_lblMapa = new GridBagConstraints();
+        	gbc_lblMapa.fill = GridBagConstraints.BOTH;
+        	gbc_lblMapa.gridx = 0;
+        	gbc_lblMapa.gridy = 0;
+        	panelMapa.add(lblMapa, gbc_lblMapa);
+        	lblMapa.setForeground(new Color(0, 128, 0));
+        	lblMapa.setVisible(false);
         	
         	lblNewLabel_3 = new JLabel("New label");
         	lblNewLabel_3.setIcon(new ImageIcon("fondo.png"));
@@ -254,7 +280,7 @@ public class GUI {
         	
         	lblResultado = new JLabel("Resultado:");
         	lblResultado.setFont(new Font("Sylfaen", Font.PLAIN, 19));
-        	lblResultado.setBounds(326, 123, 352, 29);
+        	lblResultado.setBounds(326, 123, 489, 29);
         	lblResultado.setForeground(new Color(0, 51, 51));
         	Reciclar.add(lblResultado);
         	
@@ -279,13 +305,13 @@ public class GUI {
         	lblDineroAhorrado = new JLabel("Dinero ahorrado:");
         	lblDineroAhorrado.setFont(new Font("Sylfaen", Font.PLAIN, 19));
         	lblDineroAhorrado.setForeground(new Color(0, 51, 51));
-        	lblDineroAhorrado.setBounds(326, 170, 352, 22);
+        	lblDineroAhorrado.setBounds(326, 170, 489, 22);
         	Reciclar.add(lblDineroAhorrado);
         	
         	lblDineroRecibido = new JLabel("Cantidad de dinero que recibir\u00E1:");
         	lblDineroRecibido.setFont(new Font("Sylfaen", Font.PLAIN, 19));
         	lblDineroRecibido.setForeground(new Color(0, 51, 51));
-        	lblDineroRecibido.setBounds(326, 225, 366, 26);
+        	lblDineroRecibido.setBounds(326, 225, 489, 26);
         	Reciclar.add(lblDineroRecibido);
         	
         	JLabel lblNewLabel = new JLabel("");
@@ -311,36 +337,36 @@ public class GUI {
         	
         	btnVerInformacion = new JButton("Ver Informacion");
         	btnVerInformacion.setFont(new Font("Kristen ITC", Font.PLAIN, 18));
-        	btnVerInformacion.setBounds(389, 101, 238, 25);
+        	btnVerInformacion.setBounds(283, 99, 238, 25);
         	VerRecicladoras.add(btnVerInformacion);
         	btnVerInformacion.addActionListener(new actionlistener());
         	
         	lblInfoNombre = new JLabel("Nombre");
         	lblInfoNombre.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 18));
-        	lblInfoNombre.setBounds(53, 174, 547, 30);
+        	lblInfoNombre.setBounds(53, 174, 744, 30);
         	lblInfoNombre.setForeground(new Color(0, 0, 51));
         	VerRecicladoras.add(lblInfoNombre);
         	
         	lblInfoDireccion = new JLabel("Direccion");
         	lblInfoDireccion.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 18));
-        	lblInfoDireccion.setBounds(51, 215, 547, 25);
+        	lblInfoDireccion.setBounds(51, 215, 746, 25);
         	lblInfoDireccion.setForeground(new Color(0, 0, 51));
         	VerRecicladoras.add(lblInfoDireccion);
         	
         	lblInfoTel = new JLabel("Telefono");
         	lblInfoTel.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 18));
-        	lblInfoTel.setBounds(53, 257, 547, 31);
+        	lblInfoTel.setBounds(53, 257, 744, 31);
         	lblInfoTel.setForeground(new Color(0, 0, 51));
         	VerRecicladoras.add(lblInfoTel);
         	
         	lblInfoWeb = new JLabel("Pagina Web");
         	lblInfoWeb.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD, 18));
-        	lblInfoWeb.setBounds(51, 310, 547, 31);
+        	lblInfoWeb.setBounds(51, 310, 746, 31);
         	lblInfoWeb.setForeground(new Color(0, 0, 51));
         	VerRecicladoras.add(lblInfoWeb);
         	
         	lblNewLabel_4 = new JLabel("New label");
-        	lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\MECHES\\Documents\\Programas en JAVA (UVG)\\fase 2\\Proyecto-fase-2\\fondo.png"));
+        	lblNewLabel_4.setIcon(new ImageIcon("fondo.png"));
         	lblNewLabel_4.setBounds(-277, 0, 1094, 578);
         	VerRecicladoras.add(lblNewLabel_4);
         	
@@ -382,7 +408,7 @@ public class GUI {
         	
         	btnRegistrarse2 = new JButton("Registrarse");
         	btnRegistrarse2.setFont(new Font("Kristen ITC", Font.PLAIN, 20));
-        	btnRegistrarse2.setBounds(284, 252, 285, 37);
+        	btnRegistrarse2.setBounds(257, 269, 285, 37);
         	btnRegistrarse2.setVisible(false);
         	btnRegistrarse2.addActionListener(new menuListener());
         	
@@ -395,10 +421,25 @@ public class GUI {
         	
         	btnRegresar = new JButton("Regresar");
         	btnRegresar.setFont(new Font("Kristen ITC", Font.PLAIN, 16));
-        	btnRegresar.setBounds(308, 307, 234, 25);
+        	btnRegresar.setBounds(292, 324, 234, 25);
         	btnRegresar.addActionListener(new menuListener());
         	btnRegresar.setVisible(false);
         	Registro.add(btnRegresar);
+        	
+        	rdbtnUsuarioComun = new JRadioButton("Usuario Comun");
+        	rdbtnUsuarioComun.setSelected(true);
+        	rdbtnUsuarioComun.setBackground(Color.WHITE);
+        	rdbtnUsuarioComun.setBounds(292, 235, 127, 25);
+        	Registro.add(rdbtnUsuarioComun);
+        	
+        	rdbtnEmpresa = new JRadioButton("Empresa");
+        	rdbtnEmpresa.setBackground(Color.WHITE);
+        	rdbtnEmpresa.setBounds(435, 235, 127, 25);
+        	Registro.add(rdbtnEmpresa);
+        	
+        	ButtonGroup tipoUser = new ButtonGroup();
+        	tipoUser.add(rdbtnUsuarioComun);
+        	tipoUser.add(rdbtnEmpresa);
         	
         	lblNewLabel_2 = new JLabel("");
         	lblNewLabel_2.setIcon(new ImageIcon("logo.png"));
@@ -418,34 +459,34 @@ public class GUI {
         	Menu.setVisible(true);
         	       	
 	       	JLabel lblMenu = new JLabel("Menu");
-	       	lblMenu.setBounds(287, 11, 192, 128);
+	       	lblMenu.setBounds(321, 51, 192, 128);
 	       	lblMenu.setFont(new Font("Curlz MT", Font.BOLD, 72));
 	
 	       	lblNombre_1 = new JLabel("Usuario");
 	       	lblNombre_1.setForeground(SystemColor.infoText);
-	       	lblNombre_1.setBounds(123, 224, 248, 67);
+	       	lblNombre_1.setBounds(166, 224, 248, 67);
 	       	lblNombre_1.setFont(new Font("Perpetua", Font.BOLD, 30));
         	
         	txtNombre = new JTextField();
-        	txtNombre.setBounds(539, 224, 209, 41);
+        	txtNombre.setBounds(458, 237, 209, 41);
         	txtNombre.setFont(new Font("Perpetua", Font.PLAIN, 30));
         	txtNombre.setColumns(10);
         	
         	lblContrasea = new JLabel("Contrase\u00F1a");
-        	lblContrasea.setBounds(123, 323, 261, 67);
+        	lblContrasea.setBounds(164, 310, 261, 67);
         	lblContrasea.setFont(new Font("Perpetua", Font.BOLD, 30));
         	
         	btnIngresar = new JButton("Ingresar");
-        	btnIngresar.setBounds(83, 401, 288, 41);
+        	btnIngresar.setBounds(83, 416, 288, 41);
         	btnIngresar.addActionListener(new menuListener());
         	btnIngresar.setFont(new Font("Kristen ITC", Font.BOLD, 24));
         	
         	passwordField = new JPasswordField();
-        	passwordField.setBounds(539, 310, 209, 41);
+        	passwordField.setBounds(458, 323, 209, 41);
         	passwordField.setFont(new Font("Perpetua", Font.PLAIN, 30));
         	
         	btnRegistrarse = new JButton("Registrarse");
-        	btnRegistrarse.setBounds(447, 401, 301, 41);
+        	btnRegistrarse.setBounds(447, 416, 301, 41);
         	btnRegistrarse.addActionListener(new menuListener());
         	btnRegistrarse.setFont(new Font("Kristen ITC", Font.BOLD, 24));
         	
@@ -460,7 +501,7 @@ public class GUI {
         	
         	lblNewLabel_1 = new JLabel("");
         	lblNewLabel_1.setIcon(new ImageIcon("imagen.jpg"));
-        	lblNewLabel_1.setBounds(-234, 50, 1046, 660);
+        	lblNewLabel_1.setBounds(-114, 0, 1046, 660);
         	Menu.add(lblNewLabel_1);
      	
 		
@@ -579,20 +620,21 @@ public class GUI {
 
             if (e.getSource()==btnBuscarEmpresa && comboBoxMunicipio.getSelectedItem().equals("Ciudad de Guatemala") == false){
                 int zona = 0;
-                if (comboBoxMunicipio.getSelectedItem().equals("Mixco"))
+                if (comboBoxMunicipio.getSelectedItem().equals("Mixco")){
                     zona = 100;
-                else if (comboBoxMunicipio.getSelectedItem().equals("Villa Nueva"))
-                    zona = 101;
-                else if (comboBoxMunicipio.getSelectedItem().equals("Xela"))
-                    zona = 102;
-                else if (comboBoxMunicipio.getSelectedItem().equals("Carretera Paramericana"))
-                    zona = 103;
-                else if (comboBoxMunicipio.getSelectedItem().equals("Antigua"))
-                    zona = 104;
-                else if (comboBoxMunicipio.getSelectedItem().equals("Villa Hermosa"))
-                    zona = 105;
-                else if (comboBoxMunicipio.getSelectedItem().equals("Santa Rosa"))
-                    zona = 106;
+                }else if (comboBoxMunicipio.getSelectedItem().equals("Villa Nueva")){
+                    zona = 101;}
+            
+                else if (comboBoxMunicipio.getSelectedItem().equals("Xela")){
+                    zona = 102;}
+                else if (comboBoxMunicipio.getSelectedItem().equals("Carretera Paramericana")){
+                    zona = 103;}
+                else if (comboBoxMunicipio.getSelectedItem().equals("Antigua")){
+                    zona = 104;}
+                else if (comboBoxMunicipio.getSelectedItem().equals("Villa Hermosa")){
+                    zona = 105;}
+                else if (comboBoxMunicipio.getSelectedItem().equals("Santa Rosa")){
+                    zona = 106;}
                 
                 lblNombre.setText("Nombre: "+guate.buscarFueraCiudad((String)CBMaterial.getSelectedItem(), zona, "nombre"));
                 lblDireccion.setText("Direccion: "+guate.buscarFueraCiudad((String)CBMaterial.getSelectedItem(), zona, "direccion"));
@@ -617,7 +659,7 @@ public class GUI {
 				try{
 					double cantidad= Double.parseDouble(txtCantidad.getText());
 					if (txtCantidad.getText().length()==0){
-						JOptionPane.showMessageDialog(frmMenuPrincipal,"La caja de texto no contiene nï¿½meros.","Inane warning",JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(frmMenuPrincipal,"La caja de texto no contiene numeros.","Advertencia",JOptionPane.WARNING_MESSAGE);
 					}
 					else{
 						//si presiona el boton hay programacion defensiva y se ejecutan las instrucciones correspondientes
@@ -627,25 +669,25 @@ public class GUI {
 							cadena2=" libros.";
 						}
 						if (material.equals("Vidrio")){
-							cadena2="% de la pirï¿½mide de Louvre.";
+							cadena2="% de la piramide de Louvre.";
 						}
 						if (material.equals("Metal")){
 							cadena2="% de la torre Eiffel.";
 						}
 						if (material.equals("Plastico")){
-							cadena2=" muï¿½ecas barbies.";
+							cadena2=" muniecas barbies.";
 						}
 						try{
 							lblResultado.setText(cadena1+decimales.format(c.convertir(cantidad,dimensional,material))+cadena2);
-							lblDineroAhorrado.setText("Si recicla esa cantidad, habrá ahorrado Q"+c.NuevoMateriales(cantidad,dimensional,material)+" a la industria.");
-							lblDineroRecibido.setText("Además, recibirá Q"+c.RecicladoMateriales(cantidad,dimensional,material)+" de parte de la recicladora.");
+							lblDineroAhorrado.setText("Si recicla esa cantidad, habra ahorrado Q"+c.NuevoMateriales(cantidad,dimensional,material)+" a la industria.");
+							lblDineroRecibido.setText("Ademas, recibira Q"+c.RecicladoMateriales(cantidad,dimensional,material)+" de parte de la recicladora.");
 						}
 						catch (Exception e3){
-							JOptionPane.showMessageDialog(frmMenuPrincipal,"Ingrese un nï¿½mero.","Inane warning",JOptionPane.WARNING_MESSAGE);
+							JOptionPane.showMessageDialog(frmMenuPrincipal,"Ingrese un numero!","Advertencia",JOptionPane.WARNING_MESSAGE);
 						}
 					}
 				}catch (Exception e4){
-					JOptionPane.showMessageDialog(frmMenuPrincipal,"Ingrese un nï¿½mero.","Inane warning",JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(frmMenuPrincipal,"Ingrese un numero.","Advertencia",JOptionPane.WARNING_MESSAGE);
 				}
 			}
 			
@@ -655,6 +697,14 @@ public class GUI {
 				lblInfoTel.setText("Telefono: "+guate.mostrarInfo(comboBoxNombres.getSelectedItem().toString(), "telefono"));
 				lblInfoWeb.setText("Pagina Web: "+guate.mostrarInfo(comboBoxNombres.getSelectedItem().toString(), "web"));
 				
+			}
+			
+			if (e.getSource().equals(comboBoxMunicipio)){
+				if(comboBoxMunicipio.getSelectedItem().equals("Ciudad de Guatemala")){
+					CBZona.setEnabled(true);
+				}else{
+					CBZona.setEnabled(false);
+				}
 			}
 		
 		}
@@ -702,8 +752,8 @@ public class GUI {
 				 */
 				boolean login = connection.buscar(nombre, contrasenia);
 
-					if(login){
-						JOptionPane.showMessageDialog(null, "username and password is correct");
+					if(login == true){
+						JOptionPane.showMessageDialog(frmMenuPrincipal, "Bienvenido a Reciguate!", "Bienvenido",JOptionPane.PLAIN_MESSAGE);
 						Menu.setVisible(false);
 						lblNombre_1.setVisible(false);
 						txtNombre.setVisible(false);
@@ -722,7 +772,7 @@ public class GUI {
 						tabbedPane.setVisible(true);
 					}				
 					else{
-						JOptionPane.showMessageDialog(null, "username or password is not correct");
+						JOptionPane.showMessageDialog(frmMenuPrincipal, "Nombre de Usuario o Contrasenia Incorrecta!","Error", JOptionPane.ERROR_MESSAGE);
 					}
 			     
 				
@@ -749,10 +799,35 @@ public class GUI {
     			 * Sirve para que el usuario se registre y lo agrega a la base de datos
     			 */
 			}else if (event.getSource().equals(btnRegistrarse2)){
-				
-				String nombre = txtNombre2.getText();
-				String contrasenia = txtContrasea.getText();
-				connection.agregar(nombre, contrasenia);
+				try{
+					String nombre = txtNombre2.getText();
+					String contrasenia = txtContrasea.getText();
+					String empresa;
+					if(rdbtnEmpresa.isSelected()){
+						empresa = "TRUE";
+					}else{
+						empresa = "FALSE";
+					}
+					connection.agregar(nombre, contrasenia, empresa);
+					JOptionPane.showMessageDialog(frmMenuPrincipal, "Usuario creado con exito. Por favor inicie sesion con sus datos.", "Info",JOptionPane.INFORMATION_MESSAGE);
+					
+					Menu.setVisible(true);
+					lblNombre_1.setVisible(true);
+					txtNombre.setVisible(true);
+					lblContrasea.setVisible(true);
+					passwordField.setVisible(true);
+					btnIngresar.setVisible(true);
+					Registro.setVisible(false);
+					lblRegistro.setVisible(false);
+					lblNombre2.setVisible(false);
+					lblContrasena2.setVisible(false);
+					txtNombre2.setVisible(false);
+					txtContrasea.setVisible(false);
+					btnRegresar.setVisible(false);
+					btnRegistrarse2.setVisible(true);
+				}catch (Exception e){
+					JOptionPane.showMessageDialog(frmMenuPrincipal, "No se ha iniciado la base de datos!","Error", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 			
 		}

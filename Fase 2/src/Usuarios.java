@@ -26,7 +26,8 @@ public static void main( String args[] )
          String sql =  "CREATE TABLE USUARIOS " +
 	                 "(ID INT PRIMARY KEY     NOT NULL," +
 	                 " NAME           TEXT    NOT NULL, " +
-	                 " PASSWORD       TEXT     NOT NULL)"; // Instrucción sql que inserta los parámetros de las tablas 
+	                 " PASSWORD       TEXT     NOT NULL, "+
+	                 " BUSSINES       BOOLEAN  NOT NULL)"; // Instrucción sql que inserta los parámetros de las tablas 
          stmt.executeUpdate(sql); //Se envia la orden de ingreso a la base de datos
          stmt.close();//Se cierra el statement
          c.close();//Se cierra la conexion a la base de datos
